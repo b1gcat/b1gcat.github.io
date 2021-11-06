@@ -148,6 +148,16 @@ dashboard_user = admin1
 
 
 
+### ssh代理访问
+
+```
+ssh -o "ProxyCommand nc -X 5 -x x.x.x.x:8888 %h %p" root@192.168.80.8
+
+5 - socks5
+```
+
+
+
 ### 代理客户端
 
 #### proxychain4

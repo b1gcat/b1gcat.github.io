@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>痕迹清理 · GitBook</title>
+        <title>汇编指令 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="搜索技巧.html" />
+    <link rel="prev" href="技巧汇总.html" />
     
 
     </head>
@@ -171,9 +171,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="渗透.html">
+        <li class="chapter " data-level="1.3" data-path="../渗透/渗透.html">
             
-                <a href="渗透.html">
+                <a href="../渗透/渗透.html">
             
                     
                     渗透
@@ -185,9 +185,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="msf.html">
+        <li class="chapter " data-level="1.3.1" data-path="../渗透/msf.html">
             
-                <a href="msf.html">
+                <a href="../渗透/msf.html">
             
                     
                     Msf
@@ -198,9 +198,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="内网技巧.html">
+        <li class="chapter " data-level="1.3.2" data-path="../渗透/内网技巧.html">
             
-                <a href="内网技巧.html">
+                <a href="../渗透/内网技巧.html">
             
                     
                     内网技巧
@@ -211,9 +211,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="搜索技巧.html">
+        <li class="chapter " data-level="1.3.3" data-path="../渗透/搜索技巧.html">
             
-                <a href="搜索技巧.html">
+                <a href="../渗透/搜索技巧.html">
             
                     
                     搜索技巧
@@ -224,9 +224,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.4" data-path="痕迹清理.html">
+        <li class="chapter " data-level="1.3.4" data-path="../渗透/痕迹清理.html">
             
-                <a href="痕迹清理.html">
+                <a href="../渗透/痕迹清理.html">
             
                     
                     痕迹清理
@@ -256,9 +256,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../逆向/angr.html">
+        <li class="chapter " data-level="1.4.1" data-path="angr.html">
             
-                <a href="../逆向/angr.html">
+                <a href="angr.html">
             
                     
                     Angr
@@ -269,9 +269,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../逆向/ELF.html">
+        <li class="chapter " data-level="1.4.2" data-path="ELF.html">
             
-                <a href="../逆向/ELF.html">
+                <a href="ELF.html">
             
                     
                     ELF
@@ -282,9 +282,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../逆向/frida.html">
+        <li class="chapter " data-level="1.4.3" data-path="frida.html">
             
-                <a href="../逆向/frida.html">
+                <a href="frida.html">
             
                     
                     Frida
@@ -295,9 +295,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../逆向/IDA.idc.html">
+        <li class="chapter " data-level="1.4.4" data-path="IDA.idc.html">
             
-                <a href="../逆向/IDA.idc.html">
+                <a href="IDA.idc.html">
             
                     
                     IDA.idc
@@ -308,9 +308,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../逆向/技巧汇总.html">
+        <li class="chapter " data-level="1.4.5" data-path="技巧汇总.html">
             
-                <a href="../逆向/技巧汇总.html">
+                <a href="技巧汇总.html">
             
                     
                     技巧汇总
@@ -321,9 +321,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="../逆向/汇编指令.html">
+        <li class="chapter active" data-level="1.4.6" data-path="汇编指令.html">
             
-                <a href="../逆向/汇编指令.html">
+                <a href="汇编指令.html">
             
                     
                     汇编指令
@@ -369,7 +369,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >痕迹清理</a>
+        <a href=".." >汇编指令</a>
     </h1>
 </div>
 
@@ -384,21 +384,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x75D5;&#x8FF9;&#x6E05;&#x7406;">&#x75D5;&#x8FF9;&#x6E05;&#x7406;</h1>
-<h2 id="windows">Windows</h2>
-<pre><code class="lang-bash">wevtutil cl system      &#x6E05;&#x7406;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;
-wevtutil cl application &#x6E05;&#x7406;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65E5;&#x5FD7;
-wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
-</code></pre>
-<h2 id="linux">Linux</h2>
-<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/btmp 
-<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/wtmp
-<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/lastlog
-<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/secure
-<span class="hljs-built_in">echo</span> &gt;  /var/<span class="hljs-built_in">log</span>/audit/audit.log
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&quot;</span> &gt;  ~/.bash_<span class="hljs-built_in">history</span> 
-<span class="hljs-built_in">history</span> -c
-</code></pre>
+                                <h1 id="&#x6C47;&#x7F16;&#x6307;&#x4EE4;">&#x6C47;&#x7F16;&#x6307;&#x4EE4;</h1>
+<table>
+<thead>
+<tr>
+<th>&#x6307;&#x4EE4;&#x683C;&#x5F0F;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lodsb</td>
+<td>&#x8BFB;&#x53D6;esi&#x6307;&#x5411;&#x7684;&#x5730;&#x5740;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x5230;al&#x4E2D;</td>
+<td>&#x65B9;&#x5411;&#x6807;&#x5FD7;D=0&#xFF0C;esi&#x9012;&#x589E;&#xFF1B;D=1&#xFF0C;esi&#x9012;&#x51CF;</td>
+</tr>
+<tr>
+<td>stosb</td>
+<td>&#x5C06;al&#x5185;&#x5BB9;&#x8D4B;&#x503C;&#x5230;edi&#x5730;&#x5740;&#x6307;&#x5411;&#x7684;&#x7A7A;&#x95F4;&#x4E2D;</td>
+<td>&#x65B9;&#x5411;&#x6807;&#x5FD7;D=0&#xFF0C;edii&#x9012;&#x589E;&#xFF1B;D=1&#xFF0C;edi&#x9012;&#x51CF;</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -426,7 +433,7 @@ wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
 
             
                 
-                <a href="搜索技巧.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 搜索技巧">
+                <a href="技巧汇总.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 技巧汇总">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -438,7 +445,7 @@ wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"痕迹清理","level":"1.3.4","depth":2,"next":{"title":"逆向","level":"1.4","depth":1,"ref":"","articles":[{"title":"Angr","level":"1.4.1","depth":2,"path":"逆向/angr.md","ref":"逆向/angr.md","articles":[]},{"title":"ELF","level":"1.4.2","depth":2,"path":"逆向/ELF.md","ref":"逆向/ELF.md","articles":[]},{"title":"Frida","level":"1.4.3","depth":2,"path":"逆向/frida.md","ref":"逆向/frida.md","articles":[]},{"title":"IDA.idc","level":"1.4.4","depth":2,"path":"逆向/IDA.idc.md","ref":"逆向/IDA.idc.md","articles":[]},{"title":"技巧汇总","level":"1.4.5","depth":2,"path":"逆向/技巧汇总.md","ref":"逆向/技巧汇总.md","articles":[]},{"title":"汇编指令","level":"1.4.6","depth":2,"path":"逆向/汇编指令.md","ref":"逆向/汇编指令.md","articles":[]}]},"previous":{"title":"搜索技巧","level":"1.3.3","depth":2,"path":"渗透/搜索技巧.md","ref":"渗透/搜索技巧.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button"],"pluginsConfig":{"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"渗透/痕迹清理.md","mtime":"2021-07-09T02:17:35.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-06T03:08:24.611Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"汇编指令","level":"1.4.6","depth":2,"previous":{"title":"技巧汇总","level":"1.4.5","depth":2,"path":"逆向/技巧汇总.md","ref":"逆向/技巧汇总.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button"],"pluginsConfig":{"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"逆向/汇编指令.md","mtime":"2021-08-30T02:42:05.625Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-06T03:08:24.611Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

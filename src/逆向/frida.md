@@ -21,6 +21,8 @@ Interceptor.attach(ptr_func,
             // console.log("Hook start src ",toByte(args[3]));
             // console.log("Hook start dst",toByte(args[2]));
             pAddr = args[2];
+            //打印堆栈
+          	print_c_stack(this.context, "fuck");
         },
         onLeave: function (retval) {
             //onLeave: 该函数执行结束要执行的代码，其中retval参数即是返回值
@@ -68,6 +70,34 @@ Java.perform(function x() {
     };
 });
 
+function print_c_stack(context, str_tag) {
+    console.log('');
+    console.log("=============================" + str_tag + " Stack strat=======================");       
+    console.log(Thread.backtrace(context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join('\n'));
+    console.log("=============================" + str_tag + " Stack end  ======================="); 
+}
+
+function showStacks3(str_tag) {
+    var Exception = Java.use("java.lang.Exception");
+    var ins = Exception.$new("Exception");
+    var straces = ins.getStackTrace();
+
+    if (undefined == straces || null == straces) {
+        return;
+    }
+
+    console.log("=============================" + str_tag + " Stack strat=======================");
+    console.log("");
+
+    for (var i = 0; i < straces.length; i++) {
+        var str = "   " + straces[i].toString();
+        console.log(str);
+    }
+
+    console.log("");
+    console.log("=============================" + str_tag + " Stack end=======================\r\n");
+    Exception.$dispose();
+}
 
 //Java返回的数据类型为[]byte时，js会显示object，通过函数js可以读取[]byte
 function java2jsByte(jsByte) {
@@ -118,3 +148,64 @@ function Uint8ArrayToString(fileData){
     return dataString
 }
 ```
+
+## 命令启动
+
+```bash
+frida -U -f com.android.chrome --no-pause -l test.js
+```
+
+## python
+
+```bash
+import frida
+import sys
+
+
+def read_js(file):
+    with open(file) as fp:
+        return fp.read()
+
+
+def on_message(message, data):
+    if message["type"] == "send":
+        print("[+] {}".format(message["payload"]))
+    else:
+        print("[-] {}".format(message))
+
+
+remote_device = frida.get_usb_device()
+# frida-ps -U
+session = remote_device.attach("Hashdays 2012")
+
+src = read_js("./test.js")
+script = session.create_script(src)
+script.on("message", on_message)
+script.load()
+sys.stdin.read()
+
+```
+
+## 类型
+
+```bash
+
+Java Type （Java中参数类型）	Frida Type （frida脚本中参数类型）
+int	int
+byte	byte
+short	short
+long	long
+float	float
+double	double
+char	char
+<Object>（比如String、List）	<package>.<Object>（比如java.lang.String、java.util.List）
+int[]	[I
+byte[]	[B
+short[]	[S
+long[]	[J
+float[]	[F
+double[]	[D
+char[]	[C
+<Object>[]（比如String[]）	L<package>.<Object>; (比如 [Ljava.lang.String;)
+```
+

@@ -1,3 +1,5 @@
+#npm install -g gitbook-cli
+#npm install -g gitbook-summary
 gitbook install
 book sm -i node_modules
 gitbook build
