@@ -13,7 +13,7 @@
 - 逆向
   * [Angr](逆向/angr.md)
   * [ELF](逆向/ELF.md)
+  * [FAQ](逆向/FAQ.md)
   * [Frida](逆向/frida.md)
+  * [Gdb](逆向/gdb.md)
   * [IDA.idc](逆向/IDA.idc.md)
-  * [技巧汇总](逆向/技巧汇总.md)
-  * [汇编指令](逆向/汇编指令.md)
