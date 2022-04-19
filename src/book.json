@@ -1,3 +1,15 @@
 {
-    "plugins": [  "-lunr", "-search", "search-pro", "copy-code-button"]
+    "plugins": [  "-lunr", "-search", "search-pro", "copy-code-button","simple-mind-map"],
+"pluginsConfig": {
+        "simple-mind-map": {
+            "type": "markdown",
+            "preset": "colorful",
+            "linkShape": "diagonal",
+            "autoFit": true,
+            "style": {
+              "height":  "750px"
+            }
+        }
+    }
+
 }
