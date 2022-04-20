@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>分组加密CTR · GitBook</title>
+        <title>分组加密OFB · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="分组加密ECB.html" />
+    <link rel="next" href="模运算.html" />
     
     
-    <link rel="prev" href="分组加密CFB.html" />
+    <link rel="prev" href="分组加密ECB.html" />
     
 
     </head>
@@ -142,7 +142,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="分组加密CTR.html">
+        <li class="chapter " data-level="1.2.3" data-path="分组加密CTR.html">
             
                 <a href="分组加密CTR.html">
             
@@ -168,7 +168,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="分组加密OFB.html">
+        <li class="chapter active" data-level="1.2.5" data-path="分组加密OFB.html">
             
                 <a href="分组加密OFB.html">
             
@@ -436,7 +436,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >分组加密CTR</a>
+        <a href=".." >分组加密OFB</a>
     </h1>
 </div>
 
@@ -452,10 +452,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <blockquote>
-<p>&#x200B;    CTR&#x6A21;&#x5F0F;&#x7684;&#x5168;&#x79F0;&#x662F;Counter&#x6A21;&#x5F0F;&#xFF0C;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;&#x4E3A;&#x8BA1;&#x6570;&#x5668;&#x3002;&#x8BE5;&#x6A21;&#x5F0F;&#x7684;&#x4E3B;&#x8981;&#x7279;&#x70B9;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;OFB&#xFF0C;&#x6D41;&#x5BC6;&#x7801;&#x7684;&#x4EA7;&#x751F;&#x4E0D;&#x518D;&#x4F9D;&#x8D56;&#x524D;&#x9762;&#x7684;&#x6D41;&#x5BC6;&#x7801;&#xFF0C;&#x800C;&#x662F;&#x6839;&#x636E;&#x521D;&#x4F7F;&#x5316;&#x5411;&#x91CF;&#x9010;&#x5206;&#x7EC4;&#x6267;&#x884C;+1&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5E76;&#x884C;&#x4EA7;&#x751F;&#x5BC6;&#x7801;&#x6D41;&#xFF0C;&#x505A;&#x5230;&#x5B8C;&#x5B8C;&#x5168;&#x5168;&#x7684;&#x771F;&#x6B63;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#x3002;</p>
+<p>&#x200B;    OFB&#x6A21;&#x5F0F;&#x7684;&#x5168;&#x79F0;&#x662F;Output Feedback&#x6A21;&#x5F0F;&#xFF0C;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;&#x4E3A;&#x8F93;&#x51FA;&#x53CD;&#x9988;&#x3002;&#x8BE5;&#x6A21;&#x5F0F;&#x7684;&#x4E3B;&#x8981;&#x7279;&#x70B9;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;CFB&#x6A21;&#x5F0F;&#xFF0C;&#x53C2;&#x4E0E;&#x5BC6;&#x7801;&#x6D41;&#x4EA7;&#x751F;&#x8FC7;&#x7A0B;&#x7684;&#x4E0D;&#x662F;&#x524D;&#x9762;&#x5206;&#x7EC4;&#x7684;&#x5BC6;&#x6587;&#xFF0C;&#x800C;&#x662F;&#x521D;&#x4F7F;&#x5316;&#x5411;&#x91CF;&#x672C;&#x8EAB;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x4E8B;&#x5148;&#x751F;&#x6210;&#x597D;&#x6240;&#x6709;&#x7684;&#x5BC6;&#x7801;&#x6D41;&#x5E8F;&#x5217;&#xFF0C;&#x518D;&#x4E0E;&#x660E;&#x6587;&#x6216;&#x5BC6;&#x6587;&#x505A;XOR&#x8FD0;&#x7B97;&#xFF0C;&#x5B9E;&#x73B0;&#x5E76;&#x884C;&#x52A0;&#x89E3;&#x5BC6;&#x3002;</p>
 </blockquote>
 <h2 id="&#x52A0;&#x89E3;&#x5BC6;&#x8FC7;&#x7A0B;">&#x52A0;&#x89E3;&#x5BC6;&#x8FC7;&#x7A0B;</h2>
-<p><img src="../Users/b1gcat/Desktop/hack/book/b1gcat.github.io/src/&#x5BC6;&#x7801;/img.assets/ctr.png" alt="img"></p>
+<p><img src="../Users/b1gcat/Desktop/hack/book/b1gcat.github.io/src/&#x5BC6;&#x7801;/img.assets/ofb.png" alt="img"></p>
 
                                 
                                 </section>
@@ -483,12 +483,12 @@
 
             
                 
-                <a href="分组加密CFB.html" class="navigation navigation-prev " aria-label="Previous page: 分组加密CFB">
+                <a href="分组加密ECB.html" class="navigation navigation-prev " aria-label="Previous page: 分组加密ECB">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="分组加密ECB.html" class="navigation navigation-next " aria-label="Next page: 分组加密ECB">
+                <a href="模运算.html" class="navigation navigation-next " aria-label="Next page: 模运算">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -499,7 +499,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"分组加密CTR","level":"1.2.3","depth":2,"next":{"title":"分组加密ECB","level":"1.2.4","depth":2,"path":"密码/分组加密ECB.md","ref":"密码/分组加密ECB.md","articles":[]},"previous":{"title":"分组加密CFB","level":"1.2.2","depth":2,"path":"密码/分组加密CFB.md","ref":"密码/分组加密CFB.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map","livereload"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"livereload":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"密码/分组加密CTR.md","mtime":"2022-04-19T08:00:32.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T00:46:33.558Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"分组加密OFB","level":"1.2.5","depth":2,"next":{"title":"模运算","level":"1.2.6","depth":2,"path":"密码/模运算.md","ref":"密码/模运算.md","articles":[]},"previous":{"title":"分组加密ECB","level":"1.2.4","depth":2,"path":"密码/分组加密ECB.md","ref":"密码/分组加密ECB.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"密码/分组加密OFB.md","mtime":"2022-04-19T08:00:13.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T01:08:27.062Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -522,10 +522,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

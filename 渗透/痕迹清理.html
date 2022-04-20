@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ELF · GitBook</title>
+        <title>痕迹清理 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="FAQ.html" />
+    <link rel="next" href="内网技巧.html" />
     
     
-    <link rel="prev" href="angr.html" />
+    <link rel="prev" href="渗透.html" />
     
 
     </head>
@@ -239,9 +239,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="反调试技术.html">
+        <li class="chapter " data-level="1.3.1" data-path="../逆向/反调试技术.html">
             
-                <a href="反调试技术.html">
+                <a href="../逆向/反调试技术.html">
             
                     
                     反调试技术
@@ -252,9 +252,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="angr.html">
+        <li class="chapter " data-level="1.3.2" data-path="../逆向/angr.html">
             
-                <a href="angr.html">
+                <a href="../逆向/angr.html">
             
                     
                     Angr
@@ -265,9 +265,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3" data-path="ELF.html">
+        <li class="chapter " data-level="1.3.3" data-path="../逆向/ELF.html">
             
-                <a href="ELF.html">
+                <a href="../逆向/ELF.html">
             
                     
                     ELF
@@ -278,9 +278,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="FAQ.html">
+        <li class="chapter " data-level="1.3.4" data-path="../逆向/FAQ.html">
             
-                <a href="FAQ.html">
+                <a href="../逆向/FAQ.html">
             
                     
                     FAQ
@@ -291,9 +291,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="frida.html">
+        <li class="chapter " data-level="1.3.5" data-path="../逆向/frida.html">
             
-                <a href="frida.html">
+                <a href="../逆向/frida.html">
             
                     
                     Frida
@@ -304,9 +304,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="gdb.html">
+        <li class="chapter " data-level="1.3.6" data-path="../逆向/gdb.html">
             
-                <a href="gdb.html">
+                <a href="../逆向/gdb.html">
             
                     
                     Gdb
@@ -317,9 +317,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="IDA.idc.html">
+        <li class="chapter " data-level="1.3.7" data-path="../逆向/IDA.idc.html">
             
-                <a href="IDA.idc.html">
+                <a href="../逆向/IDA.idc.html">
             
                     
                     IDA.idc
@@ -335,9 +335,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../渗透/渗透.html">
+        <li class="chapter " data-level="1.4" data-path="渗透.html">
             
-                <a href="../渗透/渗透.html">
+                <a href="渗透.html">
             
                     
                     渗透
@@ -349,9 +349,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../渗透/痕迹清理.html">
+        <li class="chapter active" data-level="1.4.1" data-path="痕迹清理.html">
             
-                <a href="../渗透/痕迹清理.html">
+                <a href="痕迹清理.html">
             
                     
                     痕迹清理
@@ -362,9 +362,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../渗透/内网技巧.html">
+        <li class="chapter " data-level="1.4.2" data-path="内网技巧.html">
             
-                <a href="../渗透/内网技巧.html">
+                <a href="内网技巧.html">
             
                     
                     内网技巧
@@ -375,9 +375,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../渗透/搜索技巧.html">
+        <li class="chapter " data-level="1.4.3" data-path="搜索技巧.html">
             
-                <a href="../渗透/搜索技巧.html">
+                <a href="搜索技巧.html">
             
                     
                     搜索技巧
@@ -388,9 +388,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../渗透/msf.html">
+        <li class="chapter " data-level="1.4.4" data-path="msf.html">
             
-                <a href="../渗透/msf.html">
+                <a href="msf.html">
             
                     
                     Msf
@@ -436,7 +436,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ELF</a>
+        <a href=".." >痕迹清理</a>
     </h1>
 </div>
 
@@ -451,9 +451,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="elf-abc">ELF abc</h1>
-<h2 id="&#x542F;&#x52A8;&#x6D41;&#x7A0B;">&#x542F;&#x52A8;&#x6D41;&#x7A0B;</h2>
-<p><img src="ELF.assets/callgraph-8739244.png" alt="callgraph"></p>
+                                <h1 id="&#x75D5;&#x8FF9;&#x6E05;&#x7406;">&#x75D5;&#x8FF9;&#x6E05;&#x7406;</h1>
+<h2 id="windows">Windows</h2>
+<pre><code class="lang-bash">wevtutil cl system      &#x6E05;&#x7406;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;
+wevtutil cl application &#x6E05;&#x7406;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65E5;&#x5FD7;
+wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
+</code></pre>
+<h2 id="linux">Linux</h2>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/btmp 
+<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/wtmp
+<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/lastlog
+<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/secure
+<span class="hljs-built_in">echo</span> &gt;  /var/<span class="hljs-built_in">log</span>/audit/audit.log
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&quot;</span> &gt;  ~/.bash_<span class="hljs-built_in">history</span> 
+<span class="hljs-built_in">history</span> -c
+</code></pre>
 
                                 
                                 </section>
@@ -481,12 +493,12 @@
 
             
                 
-                <a href="angr.html" class="navigation navigation-prev " aria-label="Previous page: Angr">
+                <a href="渗透.html" class="navigation navigation-prev " aria-label="Previous page: 渗透">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="FAQ.html" class="navigation navigation-next " aria-label="Next page: FAQ">
+                <a href="内网技巧.html" class="navigation navigation-next " aria-label="Next page: 内网技巧">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -497,7 +509,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ELF","level":"1.3.3","depth":2,"next":{"title":"FAQ","level":"1.3.4","depth":2,"path":"逆向/FAQ.md","ref":"逆向/FAQ.md","articles":[]},"previous":{"title":"Angr","level":"1.3.2","depth":2,"path":"逆向/angr.md","ref":"逆向/angr.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map","livereload"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"livereload":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"逆向/ELF.md","mtime":"2021-08-12T03:34:13.709Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T00:46:33.558Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"痕迹清理","level":"1.4.1","depth":2,"next":{"title":"内网技巧","level":"1.4.2","depth":2,"path":"渗透/内网技巧.md","ref":"渗透/内网技巧.md","articles":[]},"previous":{"title":"渗透","level":"1.4","depth":1,"path":"渗透/渗透.md","ref":"渗透/渗透.md","articles":[{"title":"痕迹清理","level":"1.4.1","depth":2,"path":"渗透/痕迹清理.md","ref":"渗透/痕迹清理.md","articles":[]},{"title":"内网技巧","level":"1.4.2","depth":2,"path":"渗透/内网技巧.md","ref":"渗透/内网技巧.md","articles":[]},{"title":"搜索技巧","level":"1.4.3","depth":2,"path":"渗透/搜索技巧.md","ref":"渗透/搜索技巧.md","articles":[]},{"title":"Msf","level":"1.4.4","depth":2,"path":"渗透/msf.md","ref":"渗透/msf.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"渗透/痕迹清理.md","mtime":"2021-07-09T02:17:35.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T01:08:27.062Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -520,10 +532,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
