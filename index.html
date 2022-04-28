@@ -313,12 +313,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="逆向/IDA.idc.html">
+        <li class="chapter " data-level="1.3.7" data-path="逆向/IDA.html">
             
-                <a href="逆向/IDA.idc.html">
+                <a href="逆向/IDA.html">
             
                     
-                    IDA.idc
+                    IDA
             
                 </a>
             
@@ -448,7 +448,158 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="introduction">Introduction</h1>
-<p><svg class="simple-mind-map" style="height: 200px;" data-lang-type="markdown" data-plugin-config="{&quot;autoFit&quot;:true,&quot;linkShape&quot;:&quot;diagonal&quot;,&quot;preset&quot;:&quot;colorful&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;750px&quot;},&quot;type&quot;:&quot;markdown&quot;}" data-block-config="{&quot;name&quot;:null,&quot;body&quot;:&quot; \n\n```markdown\n- &#x5BC6;&#x7801;&#x653B;&#x51FB;\n  - RSA\n    - n&#x53EF;&#x5206;&#x89E3;\n    \tcurl http://factordb.com/api?query=n\n    - e&#x8FC7;&#x5927;&#x6216;&#x8FC7;&#x5C0F;\n      - Wiener&apos;s Attack\n    - e&#x975E;&#x5E38;&#x5927;&#x4E14;&#x63A5;&#x8FD1;n\n      - Boneh and Durfee attack\n    - e&#x5C0F;&#x4E14;&#x660E;&#x6587;&#x4E0D;&#x5927;\n        - &#x4F4E;&#x52A0;&#x5BC6;&#x6307;&#x6570;&#x653B;&#x51FB;\n    - e&#x76F8;&#x540C;&#x4E14;k&#x7EC4;(k&gt;=e)&#x76F8;&#x540C;&#x660E;&#x6587;&#x52A0;&#x5BC6;&#x7684;&#x5BC6;&#x6587;\n    \t  - &#x4F4E;&#x52A0;&#x5BC6;&#x6307;&#x6570;&#x5E7F;&#x64AD;&#x653B;&#x51FB;(&#x4E2D;&#x56FD;&#x5269;&#x4F59;&#x5B9A;&#x7406;)\n    - p&#x3001;q&#x76F8;&#x5DEE;&#x8F83;&#x5927;&#x6216;&#x8F83;&#x5C0F;\n    \t  - &#x5206;&#x89E3;n(&#x63A8;&#x8350;yafu&#x5DE5;&#x5177;)\n    - &#x6A21;&#x4E0D;&#x4E92;&#x7D20;gcd(n1,n2)!=1\n    \t  - &#x5206;&#x89E3;n\n    - n&lt;256bit\n    \t  - &#x5206;&#x89E3;n&#xFF08;&#x63A8;&#x8350;&#x5DE5;&#x5177;rsatool2v17) \n    - n&#x4E0E;&#x660E;&#x6587;&#x76F8;&#x540C;\n    \t  - &#x5171;&#x6A21;&#x653B;&#x51FB;\n    - n&#x4E0E;&#x660E;&#x6587;&#x76F8;&#x540C;\n    \t  - &#x5171;&#x6A21;&#x653B;&#x51FB;\n    - &#x6CC4;&#x6F0F;&#x90E8;&#x5206;&#x660E;&#x6587;\n    - p&#x3001;q&#x6CC4;&#x6F0F;&#x90E8;&#x5206;\n    - &#x79C1;&#x94A5;&#x592A;&#x5C0F; d&lt;N^0x292\n    - &#x5DF2;&#x77E5;n&#x3001;e&#x3001;c&#x53EF;&#x6784;&#x9020;&#x4EFB;&#x610F;c1&#x4E14;&#x77E5;&#x5B83;&#x89E3;&#x5BC6;&#x540E; m1 &#x7684;&#x672B;&#x5C3E;&#x67D0;&#x4E9B;&#x4F4D;&#x7684;&#x6027;&#x8D28;\n    - &#x5DF2;&#x77E5;dp&#x6216;dq&#xFF08;dp = d mod p-1&#xFF0C;dq = d mod q-1&#xFF09;\n    - &#x5DF2;&#x77E5;&#x89E3;&#x5BC6;&#x7CFB;&#x7EDF;&#x4E14;`2*m&lt;n`\n \t  - &#x5DF2;&#x77E5;d&#x76F8;&#x540C;&#xFF0C;&#x9009;&#x62E9;&#x4E0D;&#x540C;p,q&#x591A;&#x6B21;&#x52A0;&#x5BC6;&#x540C;&#x4E00;&#x660E;&#x6587;\n - AES/DES/SM4\n    - padding oracle attack\n    - bit flipping Attack\n - &#x53E4;&#x5178;&#x5BC6;&#x7801;\n    - &#x66FF;&#x6362;&#x5BC6;&#x7801;\n     - &#x63A8;&#x8350;&#x8BCD;&#x9891;&#x5206;&#x6790;&#x5DE5;&#x5177;:https://quipqiup.com/\n    - &#x51EF;&#x6492;&#x5BC6;&#x7801;\n    - &#x4EFF;&#x5C04;&#x5BC6;&#x7801;\n    - &#x5409;&#x5229;&#x7EF4;&#x5BC6;\n    - OneTimePad\n    - base64&#x9690;&#x5199;\n - Hash&#x7B97;&#x6CD5;\n    - hash&#x957F;&#x5EA6;&#x6269;&#x5C55;&#x653B;&#x51FB;\n    - &#x7206;&#x7834;\n \t\n```\n\n&quot;,&quot;args&quot;:[],&quot;kwargs&quot;:{&quot;type&quot;:&quot;markdown&quot;,&quot;style&quot;:{&quot;height&quot;:&quot;200px&quot;},&quot;__keywords&quot;:true},&quot;blocks&quot;:[]}" data-svg-text="&quot;- &#x5BC6;&#x7801;&#x653B;&#x51FB;\n  - RSA\n    - n&#x53EF;&#x5206;&#x89E3;\n    \tcurl http://factordb.com/api?query=n\n    - e&#x8FC7;&#x5927;&#x6216;&#x8FC7;&#x5C0F;\n      - Wiener&apos;s Attack\n    - e&#x975E;&#x5E38;&#x5927;&#x4E14;&#x63A5;&#x8FD1;n\n      - Boneh and Durfee attack\n    - e&#x5C0F;&#x4E14;&#x660E;&#x6587;&#x4E0D;&#x5927;\n        - &#x4F4E;&#x52A0;&#x5BC6;&#x6307;&#x6570;&#x653B;&#x51FB;\n    - e&#x76F8;&#x540C;&#x4E14;k&#x7EC4;(k&gt;=e)&#x76F8;&#x540C;&#x660E;&#x6587;&#x52A0;&#x5BC6;&#x7684;&#x5BC6;&#x6587;\n    \t  - &#x4F4E;&#x52A0;&#x5BC6;&#x6307;&#x6570;&#x5E7F;&#x64AD;&#x653B;&#x51FB;(&#x4E2D;&#x56FD;&#x5269;&#x4F59;&#x5B9A;&#x7406;)\n    - p&#x3001;q&#x76F8;&#x5DEE;&#x8F83;&#x5927;&#x6216;&#x8F83;&#x5C0F;\n    \t  - &#x5206;&#x89E3;n(&#x63A8;&#x8350;yafu&#x5DE5;&#x5177;)\n    - &#x6A21;&#x4E0D;&#x4E92;&#x7D20;gcd(n1,n2)!=1\n    \t  - &#x5206;&#x89E3;n\n    - n&lt;256bit\n    \t  - &#x5206;&#x89E3;n&#xFF08;&#x63A8;&#x8350;&#x5DE5;&#x5177;rsatool2v17) \n    - n&#x4E0E;&#x660E;&#x6587;&#x76F8;&#x540C;\n    \t  - &#x5171;&#x6A21;&#x653B;&#x51FB;\n    - n&#x4E0E;&#x660E;&#x6587;&#x76F8;&#x540C;\n    \t  - &#x5171;&#x6A21;&#x653B;&#x51FB;\n    - &#x6CC4;&#x6F0F;&#x90E8;&#x5206;&#x660E;&#x6587;\n    - p&#x3001;q&#x6CC4;&#x6F0F;&#x90E8;&#x5206;\n    - &#x79C1;&#x94A5;&#x592A;&#x5C0F; d&lt;N^0x292\n    - &#x5DF2;&#x77E5;n&#x3001;e&#x3001;c&#x53EF;&#x6784;&#x9020;&#x4EFB;&#x610F;c1&#x4E14;&#x77E5;&#x5B83;&#x89E3;&#x5BC6;&#x540E; m1 &#x7684;&#x672B;&#x5C3E;&#x67D0;&#x4E9B;&#x4F4D;&#x7684;&#x6027;&#x8D28;\n    - &#x5DF2;&#x77E5;dp&#x6216;dq&#xFF08;dp = d mod p-1&#xFF0C;dq = d mod q-1&#xFF09;\n    - &#x5DF2;&#x77E5;&#x89E3;&#x5BC6;&#x7CFB;&#x7EDF;&#x4E14;`2*m&lt;n`\n \t  - &#x5DF2;&#x77E5;d&#x76F8;&#x540C;&#xFF0C;&#x9009;&#x62E9;&#x4E0D;&#x540C;p,q&#x591A;&#x6B21;&#x52A0;&#x5BC6;&#x540C;&#x4E00;&#x660E;&#x6587;\n - AES/DES/SM4\n    - padding oracle attack\n    - bit flipping Attack\n - &#x53E4;&#x5178;&#x5BC6;&#x7801;\n    - &#x66FF;&#x6362;&#x5BC6;&#x7801;\n     - &#x63A8;&#x8350;&#x8BCD;&#x9891;&#x5206;&#x6790;&#x5DE5;&#x5177;:https://quipqiup.com/\n    - &#x51EF;&#x6492;&#x5BC6;&#x7801;\n    - &#x4EFF;&#x5C04;&#x5BC6;&#x7801;\n    - &#x5409;&#x5229;&#x7EF4;&#x5BC6;\n    - OneTimePad\n    - base64&#x9690;&#x5199;\n - Hash&#x7B97;&#x6CD5;\n    - hash&#x957F;&#x5EA6;&#x6269;&#x5C55;&#x653B;&#x51FB;\n    - &#x7206;&#x7834;\n&quot;"/></p>
+<h2 id="&#x5BC6;&#x7801;&#x653B;&#x51FB;">&#x5BC6;&#x7801;&#x653B;&#x51FB;</h2>
+<h2 id="&#x53E4;&#x5178;&#x5BC6;&#x7801;">&#x53E4;&#x5178;&#x5BC6;&#x7801;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x7B97;&#x6CD5;</th>
+<th>&#x653B;&#x51FB;&#x624B;&#x6BB5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x66FF;&#x6362;&#x5BC6;&#x7801;</td>
+<td>&#x8BCD;&#x9891;&#x5206;&#x6790; <a href="https://quipqiup.com/" target="_blank">https://quipqiup.com/</a></td>
+</tr>
+<tr>
+<td>&#x51EF;&#x6492;&#x5BC6;&#x7801;</td>
+<td></td>
+</tr>
+<tr>
+<td>rot5/13/18/47</td>
+<td></td>
+</tr>
+<tr>
+<td>&#x4EFF;&#x5C04;&#x5BC6;&#x7801;</td>
+<td>&#x89E3;&#x65B9;&#x7A0B;&#x7EC4; &#x52A0;&#x5BC6;&#x516C;&#x5F0F;&#xFF1A;&#x5BC6;&#x6587; = (&#x660E;&#x6587; * &#x4E58;&#x6570; + &#x4F4D;&#x79FB;&#x6570;) Mod p</td>
+</tr>
+<tr>
+<td>&#x5409;&#x5229;&#x7EF4;&#x5BC6;</td>
+<td><a href="https://guballa.de/vigenere-solver" target="_blank">https://guballa.de/vigenere-solver</a></td>
+</tr>
+<tr>
+<td>OneTimePad</td>
+<td>Key&#x91CD;&#x7528;&#x653B;&#x51FB;</td>
+</tr>
+<tr>
+<td>base64&#x9690;&#x5199;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;">&#x5BF9;&#x79F0;&#x52A0;&#x5BC6;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x7B97;&#x6CD5;</th>
+<th>&#x653B;&#x51FB;&#x624B;&#x6BB5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CBC&#x5757;&#x52A0;&#x5BC6;</td>
+<td>padding oracle attack</td>
+</tr>
+<tr>
+<td>CBC&#x5757;&#x52A0;&#x5BC6;</td>
+<td>bit flipping Attack</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hash">HASH</h2>
+<table>
+<thead>
+<tr>
+<th>&#x653B;&#x51FB;&#x624B;&#x6BB5;</th>
+<th>&#x5907;&#x6CE8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash&#x957F;&#x5EA6;&#x6269;&#x5C55;</td>
+<td>hashpump</td>
+</tr>
+<tr>
+<td>&#x7206;&#x7834;</td>
+<td>hashcat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rsa&#x653B;&#x51FB;">RSA&#x653B;&#x51FB;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x653B;&#x51FB;&#x624B;&#x6BB5;</th>
+<th>&#x63A8;&#x8350;&#x5DE5;&#x5177;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&#x5728;&#x7EBF;&#x5206;&#x89E3;n</td>
+<td>curl <a href="http://factordb.com/api?query=n" target="_blank">http://factordb.com/api?query=n</a></td>
+</tr>
+<tr>
+<td style="text-align:left">e&#x8FC7;&#x5927;&#x6216;&#x8FC7;&#x5C0F;</td>
+<td>Wiener&apos;s Attack</td>
+</tr>
+<tr>
+<td style="text-align:left">e&#x975E;&#x5E38;&#x5927;&#x4E14;&#x63A5;&#x8FD1;n</td>
+<td>Boneh and Durfee attack</td>
+</tr>
+<tr>
+<td style="text-align:left">e&#x5C0F;&#x4E14;&#x660E;&#x6587;&#x4E0D;&#x5927;</td>
+<td>&#x4F4E;&#x52A0;&#x5BC6;&#x6307;&#x6570;&#x653B;&#x51FB;</td>
+</tr>
+<tr>
+<td style="text-align:left">e&#x76F8;&#x540C;&#x4E14;k&#x7EC4;(k&gt;=e)&#x76F8;&#x540C;&#x660E;&#x6587;&#x52A0;&#x5BC6;&#x7684;&#x5BC6;&#x6587;</td>
+<td>&#x4F4E;&#x52A0;&#x5BC6;&#x6307;&#x6570;&#x5E7F;&#x64AD;&#x653B;&#x51FB;(&#x4E2D;&#x56FD;&#x5269;&#x4F59;&#x5B9A;&#x7406;)</td>
+</tr>
+<tr>
+<td style="text-align:left">p&#x3001;q&#x76F8;&#x5DEE;&#x8F83;&#x5927;&#x6216;&#x8F83;&#x5C0F;</td>
+<td>&#x5206;&#x89E3;n(&#x63A8;&#x8350;yafu&#x5DE5;&#x5177;)</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x6A21;&#x4E0D;&#x4E92;&#x7D20;gcd(n1,n2)!=1</td>
+<td>&#x5206;&#x89E3;n</td>
+</tr>
+<tr>
+<td style="text-align:left">n&lt;256bit</td>
+<td>&#x5206;&#x89E3;n&#xFF08;&#x63A8;&#x8350;&#x5DE5;&#x5177;rsatool2v17)</td>
+</tr>
+<tr>
+<td style="text-align:left">n&#x76F8;&#x540C;&#x4E14;&#x660E;&#x6587;&#x4E5F;&#x76F8;&#x540C;</td>
+<td>&#x5171;&#x6A21;&#x653B;&#x51FB;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x6CC4;&#x6F0F;&#x90E8;&#x5206;&#x660E;&#x6587;</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">p&#x3001;q&#x6CC4;&#x6F0F;&#x90E8;&#x5206;</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x79C1;&#x94A5;&#x592A;&#x5C0F; d&lt;N^0x292</td>
+<td>&#x5DF2;&#x77E5;n&#x3001;e&#x3001;c&#x53EF;&#x6784;&#x9020;&#x4EFB;&#x610F;c1&#x4E14;&#x77E5;&#x5B83;&#x89E3;&#x5BC6;&#x540E; m1 &#x7684;&#x672B;&#x5C3E;&#x67D0;&#x4E9B;&#x4F4D;&#x7684;&#x6027;&#x8D28;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5DF2;&#x77E5;dp&#x6216;dq&#xFF08;dp = d mod p-1&#xFF0C;dq = d mod q-1&#xFF09;</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5DF2;&#x77E5;&#x89E3;&#x5BC6;&#x7CFB;&#x7EDF;&#x4E14;<code>2*m&lt;n</code></td>
+<td>&#x9009;&#x62E9;&#x5BC6;&#x6587;&#x653B;&#x51FB;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5DF2;&#x77E5;d&#x76F8;&#x540C;&#xFF0C;&#x9009;&#x62E9;&#x4E0D;&#x540C;p,q&#x591A;&#x6B21;&#x52A0;&#x5BC6;&#x540C;&#x4E00;&#x660E;&#x6587;</td>
+<td>Common Private Exponent Attack</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5DF2;&#x77E5;n&#x3001;e &#x3001;c &#x53EF;&#x6784;&#x9020;&#x4EFB;&#x610F;c1&#x4E14;&#x77E5;&#x5B83;&#x89E3;&#x5BC6;&#x540E; m1 &#x7684;&#x672B;&#x5C3E;&#x67D0;&#x4E9B;&#x4F4D;&#x7684;&#x6027;&#x8D28;</td>
+<td>Least Significant Bit Oracle Attack</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -484,7 +635,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"密码","level":"1.2","depth":1,"ref":"","articles":[{"title":"分组加密CBC","level":"1.2.1","depth":2,"path":"密码/分组加密CBC.md","ref":"密码/分组加密CBC.md","articles":[]},{"title":"分组加密CFB","level":"1.2.2","depth":2,"path":"密码/分组加密CFB.md","ref":"密码/分组加密CFB.md","articles":[]},{"title":"分组加密CTR","level":"1.2.3","depth":2,"path":"密码/分组加密CTR.md","ref":"密码/分组加密CTR.md","articles":[]},{"title":"分组加密ECB","level":"1.2.4","depth":2,"path":"密码/分组加密ECB.md","ref":"密码/分组加密ECB.md","articles":[]},{"title":"分组加密OFB","level":"1.2.5","depth":2,"path":"密码/分组加密OFB.md","ref":"密码/分组加密OFB.md","articles":[]},{"title":"模运算","level":"1.2.6","depth":2,"path":"密码/模运算.md","ref":"密码/模运算.md","articles":[]},{"title":"RSA","level":"1.2.7","depth":2,"path":"密码/RSA.md","ref":"密码/RSA.md","articles":[]},{"title":"SM 2","level":"1.2.8","depth":2,"path":"密码/SM2.md","ref":"密码/SM2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-04-19T08:45:28.999Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T01:08:27.062Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"密码","level":"1.2","depth":1,"ref":"","articles":[{"title":"分组加密CBC","level":"1.2.1","depth":2,"path":"密码/分组加密CBC.md","ref":"密码/分组加密CBC.md","articles":[]},{"title":"分组加密CFB","level":"1.2.2","depth":2,"path":"密码/分组加密CFB.md","ref":"密码/分组加密CFB.md","articles":[]},{"title":"分组加密CTR","level":"1.2.3","depth":2,"path":"密码/分组加密CTR.md","ref":"密码/分组加密CTR.md","articles":[]},{"title":"分组加密ECB","level":"1.2.4","depth":2,"path":"密码/分组加密ECB.md","ref":"密码/分组加密ECB.md","articles":[]},{"title":"分组加密OFB","level":"1.2.5","depth":2,"path":"密码/分组加密OFB.md","ref":"密码/分组加密OFB.md","articles":[]},{"title":"模运算","level":"1.2.6","depth":2,"path":"密码/模运算.md","ref":"密码/模运算.md","articles":[]},{"title":"RSA","level":"1.2.7","depth":2,"path":"密码/RSA.md","ref":"密码/RSA.md","articles":[]},{"title":"SM 2","level":"1.2.8","depth":2,"path":"密码/SM2.md","ref":"密码/SM2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-04-20T12:13:28.957Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-28T12:18:10.681Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

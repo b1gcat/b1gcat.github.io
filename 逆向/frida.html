@@ -317,12 +317,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="IDA.idc.html">
+        <li class="chapter " data-level="1.3.7" data-path="IDA.html">
             
-                <a href="IDA.idc.html">
+                <a href="IDA.html">
             
                     
-                    IDA.idc
+                    IDA
             
                 </a>
             
@@ -452,75 +452,105 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="frida-&#x6A21;&#x7248;">Frida &#x6A21;&#x7248;</h1>
-<h2 id="sample">Sample</h2>
+<h2 id="&#x5FEB;&#x901F;&#x4F7F;&#x7528;">&#x5FEB;&#x901F;&#x4F7F;&#x7528;</h2>
+<pre><code class="lang-bash">    1&#x3001;&#x542F;&#x52A8;frida&#x2014;server
+    bin=<span class="hljs-string">&quot;frida-server15010.x8664&quot;</span>
+    adb <span class="hljs-built_in">kill</span>-server
+    adb devices 
+  adb push frida/server/<span class="hljs-variable">${bin}</span>  /data/<span class="hljs-built_in">local</span>/tmp/frida-server
+  adb shell chmod +x /data/<span class="hljs-built_in">local</span>/tmp/frida-server
+  adb shell /data/<span class="hljs-built_in">local</span>/tmp/frida-server <span class="hljs-_">-l</span> 0.0.0.0
+
+  2&#x3001;&#x67E5;&#x627E;hook&#x7684;activity
+    adb shell dumpsys activity | grep <span class="hljs-string">&quot;mResumed&quot;</span>
+
+  3&#x3001;&#x542F;&#x52A8;
+  frida -U <span class="hljs-_">-f</span> com.xxx.xxx --no-pause <span class="hljs-_">-l</span> sample.js
+</code></pre>
+<h3 id="hook-java-samplejs">hook java sample.js</h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Script loaded successfully &quot;</span>);
+Java.perform(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">x</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Inside Java perform&quot;</span>);
+    <span class="hljs-keyword">var</span> m = Java.use(<span class="hljs-string">&quot;ctf.stratumauhhur.libdroid.a&quot;</span>);
+
+    <span class="hljs-comment">//&#x5982;&#x679C;a&#x88AB;&#x591A;&#x4E2A;&#x91CD;&#x8F7D;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;overload&#x4EE5;&#x53CA;&#x53C2;&#x6570;&#x7C7B;&#x578B;</span>
+    <span class="hljs-comment">//public void ctf.stratumauhhur.libdroid.a.a(android.view.View)</span>
+      <span class="hljs-comment">//overload(&apos;java.lang.String&apos;)</span>
+    m.a.overload(<span class="hljs-string">&apos;android.view.View&apos;</span>).implementation = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">view</span>) </span>{
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;hooked&quot;</span>);
+          <span class="hljs-comment">//&#x6253;&#x5370;&#x6210;&#x5458;&#x53D8;&#x91CF;</span>
+        <span class="hljs-comment">//string&#x7C7B;&#x578B;:m.flag.value</span>
+        <span class="hljs-comment">//[B:</span>
+              <span class="hljs-comment">//var bs = Java.use(&quot;com.android.okhttp.okio.ByteString&quot;);</span>
+              <span class="hljs-comment">//console.log(bs.of(m.flag.value).hex())</span>
+          <span class="hljs-comment">//[B&gt;&#x7C7B;&#x578B;</span>
+              <span class="hljs-comment">//var buffer =Java.array(&quot;byte&quot;,m.f.value);</span>
+            <span class="hljs-comment">//console.log(buffer);</span>
+        <span class="hljs-comment">//&#x672A;&#x77E5;&#x7C7B;&#x578B;:JSON.stringify(m.flag)</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a(view);
+    }; });
+</code></pre>
+<h3 id="hook-so-samplejs">hook so sample.js</h3>
 <pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Script loaded successfully &quot;</span>);
 
 <span class="hljs-comment">//so Hook</span>
-<span class="hljs-keyword">var</span> str_name_so = <span class="hljs-string">&quot;liblibdroid.so&quot;</span>;    <span class="hljs-comment">//&#x8981;hook&#x7684;so&#x540D;</span>
-<span class="hljs-keyword">var</span> n_addr_func_offset = <span class="hljs-number">0xa10</span>;         <span class="hljs-comment">//&#x8981;hook&#x7684;&#x51FD;&#x6570;&#x5728;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x7684;&#x504F;&#x79FB;</span>
-<span class="hljs-comment">//&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x540E; &#x51FD;&#x6570;&#x5730;&#x5740; = so&#x5730;&#x5740; + &#x51FD;&#x6570;&#x504F;&#x79FB;</span>
-<span class="hljs-keyword">var</span> n_addr_so = Module.findBaseAddress(str_name_so);
-<span class="hljs-keyword">var</span> n_addr_func = <span class="hljs-built_in">parseInt</span>(n_addr_so, <span class="hljs-number">16</span>) + n_addr_func_offset;
-<span class="hljs-keyword">var</span> ptr_func = <span class="hljs-keyword">new</span> NativePointer(n_addr_func);
-<span class="hljs-keyword">var</span> pAddr = <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">var</span> ptr_func = Module.getBaseAddress(<span class="hljs-string">&apos;liblibdroid.so&apos;</span>).add(<span class="hljs-number">0x970</span>);
 Interceptor.attach(ptr_func,
     {
         onEnter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">args</span>) </span>{
             <span class="hljs-comment">//onEnter: &#x8FDB;&#x5165;&#x8BE5;&#x51FD;&#x6570;&#x524D;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5176;&#x4E2D;args&#x662F;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;</span>
             <span class="hljs-comment">//&#x4E00;&#x822C;so&#x5C42;&#x51FD;&#x6570;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x90FD;&#x662F;JniEnv&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;jclass&#xFF0C;&#x4ECE;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5F00;&#x59CB;&#x662F;&#x6211;&#x4EEC;java&#x5C42;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;</span>
-            <span class="hljs-comment">// console.log(&quot;Hook start src &quot;,toByte(args[3]));</span>
-            <span class="hljs-comment">// console.log(&quot;Hook start dst&quot;,toByte(args[2]));</span>
-            pAddr = args[<span class="hljs-number">2</span>];
-            <span class="hljs-comment">//&#x6253;&#x5370;&#x5806;&#x6808;</span>
-              print_c_stack(<span class="hljs-keyword">this</span>.context, <span class="hljs-string">&quot;fuck&quot;</span>);
+           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;enter&quot;</span>)
+           <span class="hljs-comment">//console.log(hexdump(args[0]));</span>
+           <span class="hljs-built_in">console</span>.log(Memory.readByteArray(args[<span class="hljs-number">0</span>],<span class="hljs-number">256</span>));
+           <span class="hljs-comment">//args[0].readCString() // &#x8BFB;&#x5B57;&#x7B26;&#x4E32;</span>
+                     <span class="hljs-comment">//args[0].readPointer() // &#x8BFB;&#x6307;&#x9488;&#x503C;</span>
+             <span class="hljs-comment">//args[2] = ptr(1000) // &#x53C2;&#x6570;&#x4FEE;&#x6539;&#x4E3A;1000</span>
         },
         onLeave: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">retval</span>) </span>{
-            <span class="hljs-comment">//onLeave: &#x8BE5;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5176;&#x4E2D;retval&#x53C2;&#x6570;&#x5373;&#x662F;&#x8FD4;&#x56DE;&#x503C;</span>
-            <span class="hljs-keyword">var</span> a = Uint8ArrayToString(java2jsByte(pAddr));
-            <span class="hljs-keyword">if</span> (a.indexOf(<span class="hljs-string">&quot;Congratulations!&quot;</span>) &gt;= <span class="hljs-number">0</span>) {
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;hit&quot;</span>, a);
-            }
-            <span class="hljs-comment">// send(&quot;return:&quot;+retval); //&#x8FD4;&#x56DE;&#x503C;</span>
-            <span class="hljs-comment">// retval.replace(100); //&#x66FF;&#x6362;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;100</span>
+           <span class="hljs-comment">//onLeave: &#x8BE5;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5176;&#x4E2D;retval&#x53C2;&#x6570;&#x5373;&#x662F;&#x8FD4;&#x56DE;&#x503C;</span>
+           <span class="hljs-comment">// retval.replace(100); //&#x66FF;&#x6362;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;100</span>
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;leave:&quot;</span>+retval);
         }
     });
+</code></pre>
+<h2 id="python&#x542F;&#x52A8;">Python&#x542F;&#x52A8;</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> frida
+<span class="hljs-keyword">import</span> sys
 
-<span class="hljs-comment">//java Hook</span>
-Java.perform(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">x</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Inside Java perform&quot;</span>);
-    <span class="hljs-keyword">var</span> m = Java.use(<span class="hljs-string">&quot;ctf.stratumauhhur.libdroid.a&quot;</span>);
-
-    <span class="hljs-comment">//a&#x88AB;&#x591A;&#x4E2A;&#x91CD;&#x8F7D;&#xFF0C;&#x901A;&#x8FC7;overload</span>
-    <span class="hljs-comment">//public void ctf.stratumauhhur.libdroid.a.a(android.view.View)</span>
-    m.a.overload(<span class="hljs-string">&apos;android.view.View&apos;</span>).implementation = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">view</span>) </span>{
-        <span class="hljs-keyword">var</span> dst = [<span class="hljs-number">-2</span>, <span class="hljs-number">-96</span>, <span class="hljs-number">-83</span>, <span class="hljs-number">-128</span>, <span class="hljs-number">32</span>, <span class="hljs-number">89</span>, <span class="hljs-number">-85</span>, <span class="hljs-number">18</span>, <span class="hljs-number">-41</span>, <span class="hljs-number">-61</span>, <span class="hljs-number">-100</span>, <span class="hljs-number">-120</span>, <span class="hljs-number">-6</span>, <span class="hljs-number">44</span>, <span class="hljs-number">29</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">-127</span>, <span class="hljs-number">70</span>, <span class="hljs-number">13</span>, <span class="hljs-number">-36</span>, <span class="hljs-number">-23</span>, <span class="hljs-number">-50</span>, <span class="hljs-number">-52</span>, <span class="hljs-number">87</span>, <span class="hljs-number">120</span>, <span class="hljs-number">-11</span>, <span class="hljs-number">65</span>, <span class="hljs-number">95</span>, <span class="hljs-number">82</span>, <span class="hljs-number">2</span>, <span class="hljs-number">54</span>, <span class="hljs-number">-43</span>, <span class="hljs-number">51</span>, <span class="hljs-number">24</span>, <span class="hljs-number">102</span>, <span class="hljs-number">58</span>, <span class="hljs-number">64</span>, <span class="hljs-number">38</span>, <span class="hljs-number">-24</span>, <span class="hljs-number">110</span>, <span class="hljs-number">-74</span>, <span class="hljs-number">-51</span>, <span class="hljs-number">114</span>, <span class="hljs-number">-73</span>, <span class="hljs-number">60</span>, <span class="hljs-number">1</span>, <span class="hljs-number">102</span>, <span class="hljs-number">-79</span>, <span class="hljs-number">79</span>, <span class="hljs-number">-103</span>, <span class="hljs-number">35</span>, <span class="hljs-number">99</span>, <span class="hljs-number">-107</span>, <span class="hljs-number">119</span>, <span class="hljs-number">52</span>, <span class="hljs-number">97</span>, <span class="hljs-number">105</span>, <span class="hljs-number">-10</span>, <span class="hljs-number">-87</span>, <span class="hljs-number">83</span>, <span class="hljs-number">64</span>, <span class="hljs-number">55</span>, <span class="hljs-number">65</span>, <span class="hljs-number">67</span>, <span class="hljs-number">79</span>, <span class="hljs-number">-104</span>, <span class="hljs-number">-107</span>, <span class="hljs-number">44</span>, <span class="hljs-number">122</span>, <span class="hljs-number">39</span>, <span class="hljs-number">60</span>, <span class="hljs-number">-104</span>, <span class="hljs-number">104</span>, <span class="hljs-number">26</span>, <span class="hljs-number">-120</span>, <span class="hljs-number">-88</span>, <span class="hljs-number">-73</span>, <span class="hljs-number">-123</span>, <span class="hljs-number">-69</span>, <span class="hljs-number">21</span>, <span class="hljs-number">79</span>, <span class="hljs-number">26</span>, <span class="hljs-number">1</span>, <span class="hljs-number">77</span>, <span class="hljs-number">-55</span>, <span class="hljs-number">-56</span>, <span class="hljs-number">-101</span>, <span class="hljs-number">117</span>, <span class="hljs-number">120</span>, <span class="hljs-number">87</span>, <span class="hljs-number">127</span>, <span class="hljs-number">-104</span>, <span class="hljs-number">13</span>, <span class="hljs-number">-40</span>, <span class="hljs-number">81</span>, <span class="hljs-number">-88</span>, <span class="hljs-number">34</span>, <span class="hljs-number">-71</span>, <span class="hljs-number">94</span>, <span class="hljs-number">89</span>, <span class="hljs-number">77</span>, <span class="hljs-number">113</span>, <span class="hljs-number">79</span>, <span class="hljs-number">26</span>, <span class="hljs-number">-127</span>, <span class="hljs-number">-87</span>, <span class="hljs-number">-65</span>, <span class="hljs-number">7</span>, <span class="hljs-number">41</span>, <span class="hljs-number">-19</span>, <span class="hljs-number">-3</span>, <span class="hljs-number">-125</span>];
-        <span class="hljs-keyword">var</span> tmp = [];
-        <span class="hljs-keyword">var</span> result = java2jsByte(m.f.value)
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;start cracking...&quot;</span>)
-        <span class="hljs-comment">//var source = m.d.value;</span>
-        <span class="hljs-keyword">var</span> source = <span class="hljs-string">&quot;1 3875&quot;</span>
-
-        <span class="hljs-keyword">var</span> pin = source;
-
-        <span class="hljs-keyword">var</span> test = [];
-
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">10</span>; j++) {
-            test.push(result[j]);
-        }
-
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; pin.length; i++) {
-            <span class="hljs-keyword">var</span> ch = pin.charCodeAt(i);
-            test.push(ch &amp; <span class="hljs-number">0xff</span>);
-        }
-        <span class="hljs-comment">//   console.log(test);</span>
-        m.phoneHome(dst, test);
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_js</span><span class="hljs-params">(file)</span>:</span>
+    <span class="hljs-keyword">with</span> open(file) <span class="hljs-keyword">as</span> fp:
+        <span class="hljs-keyword">return</span> fp.read()
 
 
-        <span class="hljs-comment">//return this.a(view);</span>
-    };
-});
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_message</span><span class="hljs-params">(message, data)</span>:</span>
+    <span class="hljs-keyword">if</span> message[<span class="hljs-string">&quot;type&quot;</span>] == <span class="hljs-string">&quot;send&quot;</span>:
+        print(<span class="hljs-string">&quot;[+] {}&quot;</span>.format(message[<span class="hljs-string">&quot;payload&quot;</span>]))
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">&quot;[-] {}&quot;</span>.format(message))
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print_c_stack</span>(<span class="hljs-params">context, str_tag</span>) </span>{
+
+device = frida.get_usb_device()
+<span class="hljs-comment"># frida-ps -U</span>
+
+pid = device.spawn([<span class="hljs-string">&apos;ctf.stratumauhhur.libdroid&apos;</span>])
+print(<span class="hljs-string">&quot;[+] Got PID %d&quot;</span> % pid)
+session = device.attach(pid)
+<span class="hljs-comment">#session = remote_device.attach(&quot;&#x5305;&#x540D;&#x5B57;&quot;)</span>
+
+script = session.create_script(read_js(<span class="hljs-string">&quot;./agent.js&quot;</span>))
+
+<span class="hljs-comment"># Callback function</span>
+script.on(<span class="hljs-string">&apos;message&apos;</span>, on_message)
+script.load()
+
+device.resume(pid)
+
+sys.stdin.read()
+print(<span class="hljs-string">&quot;[+] Done&quot;</span>)
+</code></pre>
+<h2 id="trace">Trace</h2>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print_c_stack</span>(<span class="hljs-params">context, str_tag</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&apos;</span>);
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;=============================&quot;</span> + str_tag + <span class="hljs-string">&quot; Stack strat=======================&quot;</span>);       
     <span class="hljs-built_in">console</span>.log(Thread.backtrace(context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join(<span class="hljs-string">&apos;\n&apos;</span>));
@@ -548,105 +578,6 @@ Java.perform(<span class="hljs-function"><span class="hljs-keyword">function</sp
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;=============================&quot;</span> + str_tag + <span class="hljs-string">&quot; Stack end=======================\r\n&quot;</span>);
     Exception.$dispose();
 }
-
-<span class="hljs-comment">//Java&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E3A;[]byte&#x65F6;&#xFF0C;js&#x4F1A;&#x663E;&#x793A;object&#xFF0C;&#x901A;&#x8FC7;&#x51FD;&#x6570;js&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;[]byte</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">java2jsByte</span>(<span class="hljs-params">jsByte</span>) </span>{
-    <span class="hljs-keyword">var</span> ret;
-    Java.perform(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> b = Java.use(<span class="hljs-string">&apos;[B&apos;</span>)
-        <span class="hljs-keyword">var</span> buffer = Java.cast(jsByte, b);
-        ret = Java.array(<span class="hljs-string">&apos;byte&apos;</span>, buffer);
-    });
-    <span class="hljs-keyword">return</span> ret;
-}
-
-<span class="hljs-comment">//ArrayBuffer&#x8F6C;String: &#x89E3;&#x51B3;&#x4E2D;&#x6587;&#x4E71;&#x7801;(&#x6A21;&#x677F;)</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ab2str</span>(<span class="hljs-params">buf</span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint16Array</span>(buf)
-    <span class="hljs-comment">// encodedString = String.fromCodePoint.apply(null, new Uint16Array(buf));</span>
-    <span class="hljs-comment">// // decodedString = encodeURI(encodedString);//&#x6CA1;&#x6709;&#x8FD9;&#x4E00;&#x6B65;&#x4E2D;&#x6587;&#x4F1A;&#x4E71;&#x7801;</span>
-    <span class="hljs-comment">// // console.log(decodedString);</span>
-    <span class="hljs-comment">// return encodedString</span>
-}
-<span class="hljs-comment">//string&#x8F6C;ArrayBuffer(&#x6A21;&#x677F;)</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">str2ab</span>(<span class="hljs-params">str</span>) </span>{
-    <span class="hljs-keyword">var</span> buf = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ArrayBuffer</span>(str.length * <span class="hljs-number">2</span>); <span class="hljs-comment">// &#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x5360;&#x7528;2&#x4E2A;&#x5B57;&#x8282;</span>
-    <span class="hljs-keyword">var</span> bufView = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint16Array</span>(buf);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, strLen = str.length; i &lt; strLen; i++) {
-        bufView[i] = str.charCodeAt(i);
-    }
-    <span class="hljs-keyword">return</span> buf;
-}
-<span class="hljs-comment">//&#x5B57;&#x7B26;&#x4E32;&#x8F6C;Uint8Array(&#x6A21;&#x677F;)</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">stringToUint8Array</span>(<span class="hljs-params">str</span>)</span>{
-    <span class="hljs-keyword">var</span> arr = [];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, j = str.length; i &lt; j; ++i) {
-        arr.push(str.charCodeAt(i));
-    }
-
-    <span class="hljs-keyword">var</span> tmpUint8Array = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>(arr);
-    <span class="hljs-keyword">return</span> tmpUint8Array
-}
-<span class="hljs-comment">//Uint8Array&#x8F6C;&#x5B57;&#x7B26;&#x4E32;(&#x6A21;&#x677F;)</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Uint8ArrayToString</span>(<span class="hljs-params">fileData</span>)</span>{
-    <span class="hljs-built_in">console</span>.log(fileData)
-    <span class="hljs-keyword">var</span> dataString = <span class="hljs-string">&quot;&quot;</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; fileData.length; i++) {
-        dataString += <span class="hljs-built_in">String</span>.fromCharCode(fileData[i]);
-    }
-
-    <span class="hljs-keyword">return</span> dataString
-}
-</code></pre>
-<h2 id="&#x547D;&#x4EE4;&#x542F;&#x52A8;">&#x547D;&#x4EE4;&#x542F;&#x52A8;</h2>
-<pre><code class="lang-bash">frida -U <span class="hljs-_">-f</span> com.android.chrome --no-pause <span class="hljs-_">-l</span> test.js
-</code></pre>
-<h2 id="python">python</h2>
-<pre><code class="lang-bash">import frida
-import sys
-
-
-def <span class="hljs-built_in">read</span>_js(file):
-    with open(file) as fp:
-        <span class="hljs-built_in">return</span> fp.read()
-
-
-def on_message(message, data):
-    <span class="hljs-keyword">if</span> message[<span class="hljs-string">&quot;type&quot;</span>] == <span class="hljs-string">&quot;send&quot;</span>:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;[+] {}&quot;</span>.format(message[<span class="hljs-string">&quot;payload&quot;</span>]))
-    <span class="hljs-keyword">else</span>:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;[-] {}&quot;</span>.format(message))
-
-
-remote_device = frida.get_usb_device()
-<span class="hljs-comment"># frida-ps -U</span>
-session = remote_device.attach(<span class="hljs-string">&quot;Hashdays 2012&quot;</span>)
-
-src = <span class="hljs-built_in">read</span>_js(<span class="hljs-string">&quot;./test.js&quot;</span>)
-script = session.create_script(src)
-script.on(<span class="hljs-string">&quot;message&quot;</span>, on_message)
-script.load()
-sys.stdin.read()
-</code></pre>
-<h2 id="&#x7C7B;&#x578B;">&#x7C7B;&#x578B;</h2>
-<pre><code class="lang-bash">
-Java Type &#xFF08;Java&#x4E2D;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF09;    Frida Type &#xFF08;frida&#x811A;&#x672C;&#x4E2D;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF09;
-int    int
-byte    byte
-short    short
-long    long
-<span class="hljs-built_in">float</span>    <span class="hljs-built_in">float</span>
-double    double
-char    char
-&lt;Object&gt;&#xFF08;&#x6BD4;&#x5982;String&#x3001;List&#xFF09;    &lt;package&gt;.&lt;Object&gt;&#xFF08;&#x6BD4;&#x5982;java.lang.String&#x3001;java.util.List&#xFF09;
-int[]    [I
-byte[]    [B
-short[]    [S
-long[]    [J
-<span class="hljs-built_in">float</span>[]    [F
-double[]    [D
-char[]    [C
-&lt;Object&gt;[]&#xFF08;&#x6BD4;&#x5982;String[]&#xFF09;    L&lt;package&gt;.&lt;Object&gt;; (&#x6BD4;&#x5982; [Ljava.lang.String;)
 </code></pre>
 
                                 
@@ -691,7 +622,7 @@ char[]    [C
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Frida","level":"1.3.5","depth":2,"next":{"title":"Gdb","level":"1.3.6","depth":2,"path":"逆向/gdb.md","ref":"逆向/gdb.md","articles":[]},"previous":{"title":"FAQ","level":"1.3.4","depth":2,"path":"逆向/FAQ.md","ref":"逆向/FAQ.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"逆向/frida.md","mtime":"2021-09-23T14:06:26.192Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-20T01:08:27.062Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Frida","level":"1.3.5","depth":2,"next":{"title":"Gdb","level":"1.3.6","depth":2,"path":"逆向/gdb.md","ref":"逆向/gdb.md","articles":[]},"previous":{"title":"FAQ","level":"1.3.4","depth":2,"path":"逆向/FAQ.md","ref":"逆向/FAQ.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"逆向/frida.md","mtime":"2022-04-27T12:25:03.558Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-28T12:18:10.681Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

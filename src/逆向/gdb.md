@@ -9,7 +9,10 @@
 ## 1.追踪系统函数
 
 ```bash
-gdb -ex 'set environment LD_DEBUG=all' -ex 'catch syscall open' -ex 'r' hide_and_seek
+gdb -ex 'set environment LD_DEBUG=all' -ex 'catch syscall open' -ex 'r' hide_and_seek	
+
+忽略信号
+(gdb) handle xxx pass
 ```
 
 ## 2.多进程调试

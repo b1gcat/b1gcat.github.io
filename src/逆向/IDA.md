@@ -1,8 +1,6 @@
-# IDA.idc sample
+# idc 脚本
 
-
-
-## 打印地址
+## Sample
 
 ```c
 #include <idc.idc>
@@ -17,6 +15,10 @@ static main() {
     }
 }
 ```
+
+# 技术参考
+
+## IDC常用定义
 
 ```c
 /*

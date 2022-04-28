@@ -16,7 +16,7 @@
   * [FAQ](逆向/FAQ.md)
   * [Frida](逆向/frida.md)
   * [Gdb](逆向/gdb.md)
-  * [IDA.idc](逆向/IDA.idc.md)
+  * [IDA](逆向/IDA.md)
 - [渗透](渗透/渗透.md)
   * [痕迹清理](渗透/痕迹清理.md)
   * [内网技巧](渗透/内网技巧.md)
