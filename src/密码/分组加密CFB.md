@@ -5,8 +5,8 @@
 
 ## 加密过程
 
-![img](/Users/b1gcat/Desktop/hack/book/b1gcat.github.io/src/密码/img.assets/cfb.png)
+![img](img.assets/cfb.png)
 
 ## 解密过程
 
-![img](/Users/b1gcat/Desktop/hack/book/b1gcat.github.io/src/密码/img.assets/cfbdec.png)
+![img](img.assets/cfbdec.png)

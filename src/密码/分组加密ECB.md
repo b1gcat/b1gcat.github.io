@@ -6,4 +6,4 @@
 
 ## 加解密过程
 
-![img](/Users/b1gcat/Desktop/hack/book/b1gcat.github.io/src/密码/img.assets/ecb.png)
+![img](img.assets/ecb.png)

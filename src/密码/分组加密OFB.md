@@ -4,7 +4,7 @@
 
 ## 加解密过程
 
-![img](/Users/b1gcat/Desktop/hack/book/b1gcat.github.io/src/密码/img.assets/ofb.png)
+![img](img.assets/ofb.png)
 
 
 
