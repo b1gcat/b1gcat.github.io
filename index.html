@@ -339,20 +339,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="逆向/gdb.html">
-            
-                <a href="逆向/gdb.html">
-            
-                    
-                    Gdb
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.7" data-path="逆向/IDA.html">
+        <li class="chapter " data-level="1.3.6" data-path="逆向/IDA.html">
             
                 <a href="逆向/IDA.html">
             
@@ -488,11 +475,12 @@
                                 
                                 <h1 id="introduction">Introduction</h1>
 <h2 id="&#x6211;&#x7684;kali&#x73AF;&#x5883;">&#x6211;&#x7684;Kali&#x73AF;&#x5883;</h2>
-<pre><code class="lang-bash">dpkg --add-architecture i386 
+<pre><code class="lang-bash">docker run -idt -h kali --name kali --privileged -p12306:12306 kalilinux/kali-rolling
+dpkg --add-architecture i386 
 apt-get update
-apt-get install libc6:i386 gcc-multilib binwalk gdbserver vim hashcat libssl-dev curl git wget make unzip g++ pkg-config procps strace ltrace
-wget https://github.com/radareorg/radare2/releases/download/5.6.8/radare2-dev_5.6.8_amd64.deb
-dpkg -i radare2-dev_5.6.8_amd64.deb
+apt-get install libc6:i386 gcc-multilib binwalk gdbserver vim libssl-dev curl git wget make unzip g++ pkg-config procps strace ltrace
+git <span class="hljs-built_in">clone</span> https://github.com/radareorg/radare2
+radare2/sys/install.sh
 r2pm -ci r2ghidra
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;echo 0 &gt;/proc/sys/kernel/randomize_va_space&quot;</span> &gt;&gt; /etc/profile
 </code></pre>
@@ -683,7 +671,7 @@ r2pm -ci r2ghidra
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"密码","level":"1.2","depth":1,"ref":"","articles":[{"title":"分组加密","level":"1.2.1","depth":2,"path":"密码/分组加密.md","ref":"密码/分组加密.md","articles":[]},{"title":"分组加密CBC","level":"1.2.2","depth":2,"path":"密码/分组加密CBC.md","ref":"密码/分组加密CBC.md","articles":[]},{"title":"分组加密CFB","level":"1.2.3","depth":2,"path":"密码/分组加密CFB.md","ref":"密码/分组加密CFB.md","articles":[]},{"title":"分组加密CTR","level":"1.2.4","depth":2,"path":"密码/分组加密CTR.md","ref":"密码/分组加密CTR.md","articles":[]},{"title":"分组加密ECB","level":"1.2.5","depth":2,"path":"密码/分组加密ECB.md","ref":"密码/分组加密ECB.md","articles":[]},{"title":"分组加密OFB","level":"1.2.6","depth":2,"path":"密码/分组加密OFB.md","ref":"密码/分组加密OFB.md","articles":[]},{"title":"模运算","level":"1.2.7","depth":2,"path":"密码/模运算.md","ref":"密码/模运算.md","articles":[]},{"title":"重要定理","level":"1.2.8","depth":2,"path":"密码/重要定理.md","ref":"密码/重要定理.md","articles":[]},{"title":"RSA","level":"1.2.9","depth":2,"path":"密码/RSA.md","ref":"密码/RSA.md","articles":[]},{"title":"SM 2","level":"1.2.10","depth":2,"path":"密码/SM2.md","ref":"密码/SM2.md","articles":[]},{"title":"SM2密钥交换协议","level":"1.2.11","depth":2,"path":"密码/SM2密钥交换协议.md","ref":"密码/SM2密钥交换协议.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-05-05T07:56:00.122Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-06T03:03:16.248Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"密码","level":"1.2","depth":1,"ref":"","articles":[{"title":"分组加密","level":"1.2.1","depth":2,"path":"密码/分组加密.md","ref":"密码/分组加密.md","articles":[]},{"title":"分组加密CBC","level":"1.2.2","depth":2,"path":"密码/分组加密CBC.md","ref":"密码/分组加密CBC.md","articles":[]},{"title":"分组加密CFB","level":"1.2.3","depth":2,"path":"密码/分组加密CFB.md","ref":"密码/分组加密CFB.md","articles":[]},{"title":"分组加密CTR","level":"1.2.4","depth":2,"path":"密码/分组加密CTR.md","ref":"密码/分组加密CTR.md","articles":[]},{"title":"分组加密ECB","level":"1.2.5","depth":2,"path":"密码/分组加密ECB.md","ref":"密码/分组加密ECB.md","articles":[]},{"title":"分组加密OFB","level":"1.2.6","depth":2,"path":"密码/分组加密OFB.md","ref":"密码/分组加密OFB.md","articles":[]},{"title":"模运算","level":"1.2.7","depth":2,"path":"密码/模运算.md","ref":"密码/模运算.md","articles":[]},{"title":"重要定理","level":"1.2.8","depth":2,"path":"密码/重要定理.md","ref":"密码/重要定理.md","articles":[]},{"title":"RSA","level":"1.2.9","depth":2,"path":"密码/RSA.md","ref":"密码/RSA.md","articles":[]},{"title":"SM 2","level":"1.2.10","depth":2,"path":"密码/SM2.md","ref":"密码/SM2.md","articles":[]},{"title":"SM2密钥交换协议","level":"1.2.11","depth":2,"path":"密码/SM2密钥交换协议.md","ref":"密码/SM2密钥交换协议.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","simple-mind-map"],"pluginsConfig":{"simple-mind-map":{"autoFit":true,"linkShape":"diagonal","preset":"colorful","style":{"height":"750px"},"type":"markdown"},"search-pro":{},"copy-code-button":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-06-06T05:56:31.108Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-10T02:18:52.681Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
