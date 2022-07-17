@@ -1,5 +1,7 @@
 # Introduction
 
+
+
 ## 我的Kali环境
 
 ```bash
@@ -7,9 +9,9 @@ docker run -idt -h kali --name kali --privileged -p12306:12306 kalilinux/kali-ro
 dpkg --add-architecture i386 
 apt-get update
 apt-get install libc6:i386 gcc-multilib binwalk gdbserver vim libssl-dev curl git wget make unzip g++ pkg-config procps strace ltrace
-git clone https://github.com/radareorg/radare2
-radare2/sys/install.sh
-r2pm -ci r2ghidra
+#install rizin
+https://github.com/rizinorg/rizin/releases/
+
 echo "echo 0 >/proc/sys/kernel/randomize_va_space" >> /etc/profile
 ```
 

