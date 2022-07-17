@@ -15,51 +15,57 @@ echo "echo 0 >/proc/sys/kernel/randomize_va_space" >> /etc/profile
 
 
 
-## 密码攻击
+## 跳板机
 
-## 古典密码
+```bash
+apt-get upgrade
+apt-get install curl wget wim proxychains4
 
-| 算法          | 攻击手段                                               |
-| ------------- | ------------------------------------------------------ |
-| 替换密码      | 词频分析 https://quipqiup.com/                         |
-| 凯撒密码      |                                                        |
-| rot5/13/18/47 |                                                        |
-| 仿射密码      | 解方程组 加密公式：密文 = (明文 * 乘数 + 位移数) Mod p |
-| 吉利维密      | https://guballa.de/vigenere-solver                     |
-| OneTimePad    | Key重用攻击                                            |
-| base64隐写    |                                                        |
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+chmod 755 msfinstall 
+./msfinstall
 
-## 对称加密
+#Cobaltstrike
+#go
+https://studygolang.com/dl
+#jdk
 
-| 算法      | 攻击手段              |
-| --------- | --------------------- |
-| CBC块加密 | padding oracle attack |
-| CBC块加密 | bit flipping Attack   |
+#设置环境变量.bashrc
+export GOROOT=/root/go
+export GOPATH=/opt/gosrc
+export PAGH=$PATH:/root/go/bin
+export GOPROXY=https://goproxy.cn,direct
+```
 
-## HASH
 
-| 攻击手段     | 备注     |
-| ------------ | -------- |
-| hash长度扩展 | hashpump |
-| 爆破         | hashcat  |
+## 武器库
 
-### RSA攻击
+### 信息收集
+* https://github.com/0x727/ShuiZe_0x727
 
-| 攻击手段                                                    | 推荐工具                                                  |
-| :---------------------------------------------------------- | --------------------------------------------------------- |
-| 在线分解n                                                   | curl http://factordb.com/api?query=n                      |
-| e过大或过小                                                 | Wiener's Attack                                           |
-| e非常大且接近n                                              | Boneh and Durfee attack                                   |
-| e小且明文不大                                               | 低加密指数攻击                                            |
-| e相同且k组(k>=e)相同明文加密的密文                          | 低加密指数广播攻击(中国剩余定理)                          |
-| p、q相差较大或较小                                          | 分解n(推荐yafu工具)                                       |
-| 模不互素gcd(n1,n2)!=1                                       | 分解n                                                     |
-| n<256bit                                                    | 分解n（推荐工具rsatool2v17)                               |
-| n相同且明文也相同                                           | 共模攻击                                                  |
-| 泄漏部分明文                                                |                                                           |
-| p、q泄漏部分                                                |                                                           |
-| 私钥太小 d<N^0x292                                          | 已知n、e、c可构造任意c1且知它解密后 m1 的末尾某些位的性质 |
-| 已知dp或dq（dp = d mod p-1，dq = d mod q-1）                |                                                           |
-| 已知解密系统且`2*m<n`                                       | 选择密文攻击                                              |
-| 已知d相同，选择不同p,q多次加密同一明文                      | Common Private Exponent Attack                            |
-| 已知n、e 、c 可构造任意c1且知它解密后 m1 的末尾某些位的性质 | Least Significant Bit Oracle Attack                       |
+### 扫描器
+* https://github.com/chaitin/xray 一款功能强大的安全评估工具
+* https://github.com/Weik1/Artillery  Artillery 插件化 JAVA 漏洞扫描器（Weblogic、Tomcat、Spring...）
+* https://github.com/zan8in/afrog
+
+### fuzz
+* https://github.com/ffuf/ffuf
+* https://github.com/maurosoria/dirsearch
+
+
+### 字典
+* https://github.com/rootphantomer/Blasting_dictionary
+* https://github.com/TheKingOfDuck/fuzzDicts
+* https://github.com/danielmiessler/SecLists
+* https://github.com/conwnet/wpa-dictionary
+
+
+### payload
+* https://github.com/swisskyrepo/PayloadsAllTheThings 
+* https://github.com/fofapro/vulfocus
+* https://github.com/Mr-xn/Penetration_Testing_POC
+* https://github.com/vulhub/vulhub
+
+### 内网
+* https://www.secureauth.com/labs/open-source-tools/impacket/
+* https://github.com/b1gcat/anti-av

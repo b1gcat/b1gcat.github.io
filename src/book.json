@@ -1,15 +1,20 @@
 {
-	"plugins": [  "-lunr", "-search", "search-pro", "copy-code-button","simple-mind-map"],
-	"pluginsConfig": {
-		"simple-mind-map": {
-			"type": "markdown",
-			"preset": "colorful",
-			"linkShape": "diagonal",
-			"autoFit": true,
-			"style": {
-				"height":  "750px"
-			}
-		}
-	}
-
+    "plugins":[
+        "-lunr",
+        "-search",
+        "search-pro",
+        "copy-code-button",
+        "expandable-chapters",
+        "3-ba",
+        "-sharing",
+        "github"
+    ],
+    "pluginsConfig":{
+        "github":{
+            "url":"https://github.com/b1gcat"
+        },
+        "3-ba":{
+            "token":"07bf89aa534c314342001099803e2d76"
+        }
+    }
 }
