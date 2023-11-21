@@ -1,0 +1,12 @@
+<footer id="footer">
+  <div>
+    <span>© {{ .Site.Params.since }}</span> - <span>{{ now.Format "2006"}}</span>
+  </div>
+
+  <div>
+  </div>
+
+  <div class="footnote">
+    <span>{{ .Site.Params.footnote | safeHTML }}</span>
+  </div>
+</footer>

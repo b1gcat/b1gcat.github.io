@@ -1,0 +1,13 @@
+name = "B1gCat`"
+license = "MIT"
+licenselink = "https://github.com/weastur/hugo-texify2/blob/master/LICENSE"
+description = "A minimal, latex-style hugo theme for personal blogging"
+homepage = "https://github.com/weastur/hugo-texify2/"
+demosite = "https://texify2.io"
+tags = ["blog", "clean", "latex", "light", "minimal", "responsive", "simple"]
+features = ["blog"]
+min_version = "0.113"
+
+[author]
+name = "b1gcat"
+homepage = "https://github.com/b1gcat/"
