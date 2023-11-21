@@ -1,4 +1,4 @@
-baseURL = 'https://b1gcat.github.io/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'B1gcat Home'
 theme = 'hugo-texify2'
