@@ -18,7 +18,7 @@ tags = "tags"
 
 [params]
 title="B1gCat | Home"
-description = "B1gCat Home"
+description = "B1gCat|Home"
 images = ['images/logo.jpg']
 footnote = """
 Follow me on <a class=link href=https://github.com/b1gcat target=_blank rel=noopener>GitHub</a>
